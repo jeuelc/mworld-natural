@@ -1,0 +1,151 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-parks-and-you-hononrary-rangers">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Honorary Rangers</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="owllink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Honorary_Rangers/Owl_Hi_Res.jpg', 'Can you spot the owl in this picture?  If you took part in a bioblitz you would need sharp eyes to spot all of the different types of animals that live in the park!');">click here</a>
+        
+		<a id="tablelink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Honorary_Rangers/Table_Mountain_Hi_Res.jpg', 'Table Mountain National Park, in South Africa, runs a very successful volunteer program.  Volunteers in the park help with everything from clearing weeds to fighting fires!');">click here</a>
+		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Honorary_Rangers/Where_Do_I_Live.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Honorary_Rangers/Owl.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Honorary_Rangers/Table_Mountain.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>Some parks have volunteer programmes where you could become a citizen ranger or honorary ranger  you may even get to wear a park uniform if you help out on weekends.</p>
+		<p>You could help with fundraising for the park, show park visitors around, or maybe take part in a 'bioblitz'!</p>
+		<p>A bioblitz is an intense period of biological surveying when people try to record all the living species within an area!  Groups of scientists and volunteers set a short space of time (usually 24 hours) and record as much as they can see.  Many countries run bioblitzes, including Australia, New Zealand, Taiwan, Trinidad and Tobago.</p>
+		<p>You could also become a 'citizen scientist'.  This is where members of the public, like you, get to take part in scientific research.  You could help to collect information used to better understand and protect the park.  For example, you could help count numbers of animals or plants, such as little penguins, fruit bats or rare orchids.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstophononrary"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="hononraryaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="hononraryaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="hononraryaudiofbtn"></div></div>
+    <div id="actualaudio-hononrary" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-hononrary').html('<audio id="hononraryaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Hononrary_Rangers.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-parks-and-you-hononrary-rangers").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+	$("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-parks-and-you-hononrary-rangers-where-do-live.html", {transition: "slide"});
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#owllink')[0].click();
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#tablelink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-parks-and-you.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstophononrary").on('tap', function() {
+      if(!playing) {
+        hononraryaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        hononraryaudio.pause(); hononraryaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#hononraryaudioplbtn").on('tap', function() {
+      if(!paused) {
+        hononraryaudio.pause();
+        paused = true;
+      } else {
+        hononraryaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#hononraryaudiofbtn").on('tap', function() {
+      var ctime = hononraryaudio.currentTime;
+      hononraryaudio.currentTime = ctime + 10;
+    });
+    
+    $("#hononraryaudiobbtn").on('tap', function() {
+      var ctime = hononraryaudio.currentTime;
+      hononraryaudio.currentTime = ctime - 10;
+    });
+    
+    $("#hononraryaudiopsbtn").on('tap', function() {
+      hononraryaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

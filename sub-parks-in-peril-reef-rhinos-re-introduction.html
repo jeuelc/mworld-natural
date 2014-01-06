@@ -1,0 +1,129 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-reef-rhinos-re-introduction">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Reef, Rhinos and Re-Introductions</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navparksperil-content3">
+        <p>Some parks are created to protect spectacular or scientifically important landforms, like the Grand Canyon in America or Uluru in Australia.  Some protect culturally important or sacred sites.</p>
+		<p>Other parks protect biodiversity and people come from all over the world to see the amazing animals and plants that thrive there.</p>
+		<p>Come and explore some of the most diverse parks around the world and learn about their challenges and triumphs.</p>
+      </div>
+        
+      <div class="navparksinperilbtn1" style="top:420px;">
+        <p><a href="sub-parks-in-peril-reef-rhinos-re-introduction-coral-reef-crisis.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/Coral_Reef_Crisis.png"></a></p>
+      </div>
+      <div class="navparksinperilbtn2" style="left:400px;">
+        <p><a href="sub-parks-in-peril-reef-rhinos-re-introduction-the-big-five.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/The_Big_Five.png"></a></p>
+      </div>
+      <div class="navparksinperilbtn3" style="top:420px;">
+        <p><a href="sub-parks-in-peril-reef-rhinos-re-introduction-yellowstone.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/Yellowstone.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopreefrhinos"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="reefrhinosaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="reefrhinosaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="reefrhinosaudiofbtn"></div></div>
+    <div id="actualaudio-reefrhinos" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-reefrhinos').html('<audio id="reefrhinosaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Reef_Rhinos.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-reef-rhinos-re-introduction").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopreefrhinos").on('tap', function() {
+      if(!playing) {
+        reefrhinosaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        reefrhinosaudio.pause(); reefrhinosaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#reefrhinosaudioplbtn").on('tap', function() {
+      if(!paused) {
+        reefrhinosaudio.pause();
+        paused = true;
+      } else {
+        reefrhinosaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#reefrhinosaudiofbtn").on('tap', function() {
+      var ctime = reefrhinosaudio.currentTime;
+      reefrhinosaudio.currentTime = ctime + 10;
+    });
+    
+    $("#reefrhinosaudiobbtn").on('tap', function() {
+      var ctime = reefrhinosaudio.currentTime;
+      reefrhinosaudio.currentTime = ctime - 10;
+    });
+    
+    $("#reefrhinosaudiopsbtn").on('tap', function() {
+      reefrhinosaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

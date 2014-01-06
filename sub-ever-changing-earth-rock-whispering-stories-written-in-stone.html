@@ -1,0 +1,143 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-rock-whispering-stories-written-in-stone">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Stories written in stone</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Rock_Whispering/Stories_Written_In_Stone/Wheres_The_Sea_Gone.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Rock_Whispering/Stories_Written_In_Stone/Slushball_Earth.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+		<div class="bpcontenteverchangingearth">
+			<p>Here are a couple of incredible stories of Earth's unexpected past written into the rocks beneath our feet. </p>
+			<p>Now that you've learned the language of the rocks, you'll be able to read them too!</p>
+		</div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+
+
+
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopStories_Written_In_Stone"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="Stories_Written_In_Stoneaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="Stories_Written_In_Stoneaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="Stories_Written_In_Stoneaudiofbtn"></div></div>
+    <div id="actualaudio-Stories_Written_In_Stone" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Stories_Written_In_Stone').html('<audio id="Stories_Written_In_Stoneaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Stories_Written_In_Stone.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-rock-whispering-stories-written-in-stone").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+  
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-rock-whispering.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopStories_Written_In_Stone").on('tap', function() {
+      if(!playing) {
+        Stories_Written_In_Stoneaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Stories_Written_In_Stoneaudio.pause(); Stories_Written_In_Stoneaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Stories_Written_In_Stoneaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Stories_Written_In_Stoneaudio.pause();
+        paused = true;
+      } else {
+        Stories_Written_In_Stoneaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Stories_Written_In_Stoneaudiofbtn").on('tap', function() {
+      var ctime = Stories_Written_In_Stoneaudio.currentTime;
+      Stories_Written_In_Stoneaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Stories_Written_In_Stoneaudiobbtn").on('tap', function() {
+      var ctime = Stories_Written_In_Stoneaudio.currentTime;
+      Stories_Written_In_Stoneaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Stories_Written_In_Stoneaudiopsbtn").on('tap', function() {
+      Stories_Written_In_Stoneaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	$("#pol1").on('tap', function(){
+		$.mobile.changePage("sub-ever-changing-earth-rock-whispering-stories-written-in-stone-wheres-the-earth-gone.html", {transition: "slide"});
+    });
+	
+    $("#pol2").on('tap', function() {
+		$.mobile.changePage("sub-ever-changing-earth-rock-whispering-stories-written-in-stone-slushball-earth.html", {transition: "slide"});
+    });
+
+	
+	
+  </script>
+   <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

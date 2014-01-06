@@ -1,0 +1,193 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-fossil-puzzles-the-fossil-formula">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Fossil Formula</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Stratigraphic_Chaos.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Stratigraphic_Chaos_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left: 53px;top: 169px;width: 120px;height: 31px;"></div>
+              <div class="falseans" style="position:absolute;left: 189px;top: 169px;width: 120px;height: 31px;"></div>
+			  <div class="falseans" style="position:absolute;left: 52px;top: 204px;width: 120px;height: 31px;"></div>
+			   <div class="falseans" style="position:absolute;left: 189px;top: 204px;width: 120px;height: 31px;"></div>
+			    
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->	  
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Petrified_Hi_Res.jpg', 'Petrified wood in the Petrified Wood National Park, Arizona, USA.  This process happens when a tree takes up minerals and the spongy insides of the wood start to harden into rock from the inside out... while it is still alive!  ');">click here</a>
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Close_Up_Hi_Res.jpg', 'Close up of petrified wood, can you spot the tree rings? ');">click here</a>		
+      
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Stratigraphic_Chaos.png" alt="" />
+          </div>
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Petrified.jpg" alt="" />
+          </div>
+          <div id="pol3" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Fossil_Formula/Close_Up.jpg" alt="" />
+          </div>		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+		<div class="bpcontenteverchangingearth">
+			<p>Fossils are the product of very special conditions.  To become a fossil, a dead organism needs to avoid being broken apart in a harsh environment, hide from scavengers, and bacterial decay.  Even after the organism is buried, the trouble isn't over!  If the fossil is buried too deeply, it may become cooked and ruined. </p>
+
+			<p>The type of organism is an important factor too - those with hard parts, such as shells, wood, or bone, are far more likely to end up preserved as fossils.  This is because they can resist the physical and chemical stress of being buried for millions of years.  Soft and squishy organisms are less likely to be preserved!</p>
+
+			<p>For these reasons, we have found fossils for less than 1% of all species that have ever lived on Earth!  The adventure of a fossil is a long and hard one, so the survivors are rare and precious!</p>
+		</div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+
+
+
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopTheFossilFormula"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="TheFossilFormulaaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="TheFossilFormulaaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="TheFossilFormulaaudiofbtn"></div></div>
+    <div id="actualaudio-TheFossilFormula" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-TheFossilFormula').html('<audio id="TheFossilFormulaaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/The_Fossil_Formula.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-fossil-puzzles-the-fossil-formula").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+  
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-fossil-puzzles.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopTheFossilFormula").on('tap', function() {
+      if(!playing) {
+        TheFossilFormulaaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        TheFossilFormulaaudio.pause(); TheFossilFormulaaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#TheFossilFormulaaudioplbtn").on('tap', function() {
+      if(!paused) {
+        TheFossilFormulaaudio.pause();
+        paused = true;
+      } else {
+        TheFossilFormulaaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#TheFossilFormulaaudiofbtn").on('tap', function() {
+      var ctime = TheFossilFormulaaudio.currentTime;
+      TheFossilFormulaaudio.currentTime = ctime + 10;
+    });
+    
+    $("#TheFossilFormulaaudiobbtn").on('tap', function() {
+      var ctime = TheFossilFormulaaudio.currentTime;
+      TheFossilFormulaaudio.currentTime = ctime - 10;
+    });
+    
+    $("#TheFossilFormulaaudiopsbtn").on('tap', function() {
+      TheFossilFormulaaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+    $('.falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+    $("#pol2").on('tap', function() {
+		$('#img1')[0].click();
+    });
+    $("#pol3").on('tap', function() {
+		$('#img2')[0].click();
+    });
+	
+	
+  </script>
+   <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

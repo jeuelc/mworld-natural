@@ -1,0 +1,154 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection-Biodiversity-animals-in-trouble">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Animals In Trouble</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="classiclink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble/Rhino_Horns_Hi_Res.jpg', 'It is illegal and very dangerous to hunt rhinos and take their horns.  What do you think could be done to reduce poaching?');">click here</a>
+        
+		<a id="rottinglink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble/Rangers_Hi_Res.jpg', 'Poaching is a problem for many parks, not just Kruger.  Endangered animals all over the world are hunted for their fur or horns.');">click here</a>
+		
+		<a id="pondlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble/Rhino_Hi_Res.jpg', 'Black rhino are very endangered - with less than 5,000 left in the wild.  What do you think you could do to help preserve the black rhino?');">click here</a>
+		
+        <div id="zoomwrapper">
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble/Rhino_Horns.jpg" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble/Rangers.jpg" alt="" />
+          </div>
+		  <div id="polb3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble/Rhino.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>The Kruger National Park in South Africa has a long history of protecting land and conserving threatened species.  It has the largest rhino population in the world and, unlike many other parks, its elephant population is thriving.</p>
+		<p>But the animals of Kruger are threatened by illegal poaching.  Some people believe that rhino horns can be a kind of medicine (though science has found no evidence for this) and this demand drives rhino poaching.  Rhino horn is sold for thousands of dollars per kilogram on the black (illegal) market  this means that it's worth more than gold.</p>
+		<p>Although the trade in rhino horn is illegal, poachers sometimes enter parks at night to shoot rhinos and cut off their horns.  The rhinos rarely survive.</p>
+		<p>Black rhinos are critically endangered animals.  There are fewer than 5,000 left in the wild.</p>
+		<p>Kruger is not the only park where poaching or illegal harvesting is a problem, and trying to stop it is a big challenge for the conservation effort.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopanimalstrouble"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="animalstroubleaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="animalstroubleaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="animalstroubleaudiofbtn"></div></div>
+    <div id="actualaudio-animalstrouble" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#polb2').css("z-index", 2);
+      $('div#polb1').css("z-index", 1);
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-animalstrouble').html('<audio id="animalstroubleaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Animals_In_Trouble.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-protection-Biodiversity-animals-in-trouble").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $("#polb1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+	$("#polb1").on('tap', function() {
+      $('#classiclink')[0].click();
+    });
+	
+    $("#polb2").on('tap', function() {
+      $('#rottinglink')[0].click();
+    });
+	
+	$("#polb3").on('tap', function() {
+      $('#pondlink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-protection-Biodiversity.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopanimalstrouble").on('tap', function() {
+      if(!playing) {
+        animalstroubleaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        animalstroubleaudio.pause(); animalstroubleaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#animalstroubleaudioplbtn").on('tap', function() {
+      if(!paused) {
+        animalstroubleaudio.pause();
+        paused = true;
+      } else {
+        animalstroubleaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#animalstroubleaudiofbtn").on('tap', function() {
+      var ctime = animalstroubleaudio.currentTime;
+      animalstroubleaudio.currentTime = ctime + 10;
+    });
+    
+    $("#animalstroubleaudiobbtn").on('tap', function() {
+      var ctime = animalstroubleaudio.currentTime;
+      animalstroubleaudio.currentTime = ctime - 10;
+    });
+    
+    $("#animalstroubleaudiopsbtn").on('tap', function() {
+      animalstroubleaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogicb.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

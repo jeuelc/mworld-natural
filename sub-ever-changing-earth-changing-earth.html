@@ -1,0 +1,133 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Changing Earth</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+	<div class="naveverchangingearth-content">
+		<p>Rocks and fossils have recorded important episodes of evolutionary and environmental change throughout Earth's history.  Times of both blisteringly hot and bitterly cold global temperatures, of continental collision and breakup, and of biological 'boom and bust'.</p>
+
+		<p>Over the longest time periods, the slow and steady shifting of the continents can gradually change frozen tundra into a tropical paradise for plants and animals to thrive in.  On the shortest timespans however, dramatic environmental jolts will devastate the organisms if they are too rapid, causing the deaths of entire species.  These extinctions are 'geologically' sudden, often taking hundreds or even thousands of years, but compared to the age of the Earth, this is the blink of an eye!</p> 
+
+		<p>Fast or slow, our Earth has always changed, and will continue to change, long into the future...tap the buttons to find out more.</p>
+	</div>
+        
+      <div class="navbtn1" style="top:320px;">
+        <p><a href="sub-ever-changing-earth-changing-earth-earths-endless-evolution.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Earths_Endless_Evolution.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:320px;">
+        <p><a href="sub-ever-changing-earth-changing-earth-wipe-out.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out.png"></a></p>
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopchangingearth"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="changingearthaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="changingearthaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="changingearthaudiofbtn"></div></div>
+    <div id="actualaudio-changingearth" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-changingearth').html('<audio id="changingearthaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Changing_Earth.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-changing-earth").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopchangingearth").on('tap', function() {
+      if(!playing) {
+        changingearthaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        changingearthaudio.pause(); changingearthaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#changingearthaudioplbtn").on('tap', function() {
+      if(!paused) {
+        changingearthaudio.pause();
+        paused = true;
+      } else {
+        changingearthaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#changingearthaudiofbtn").on('tap', function() {
+      var ctime = changingearthaudio.currentTime;
+      changingearthaudio.currentTime = ctime + 10;
+    });
+    
+    $("#changingearthaudiobbtn").on('tap', function() {
+      var ctime = changingearthaudio.currentTime;
+      changingearthaudio.currentTime = ctime - 10;
+    });
+    
+    $("#changingearthaudiopsbtn").on('tap', function() {
+      changingearthaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

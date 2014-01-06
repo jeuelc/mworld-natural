@@ -1,0 +1,140 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Ever-changing Earth</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+		<div class="naveverchangingearth-content">
+			<p>The Earth is old... really, really old.  Today, there are seven continents on Earth: Africa, Antarctica, Asia, Australia, Europe, North America and South America.  But a long time ago, these were once mashed into one super-continent: 'Pangaea'.   Pangaea means 'all lands' and was surrounded by a huge sea called 'Panthalassa', named after the Goddess of the Sea.</p>
+
+			<p>Mountains and lakes and deserts all look like they've been there forever  as you get older, they hardly seem to change at all.  But mountains rise and crumble, lakes expand or dry up, and deserts are constantly on the move.  Over the Earth's lifespan they all come and go, and are even changing right now!</p>
+
+			<p>The Earth has constantly changed... and these changes are written in the rocks and fossils buried beneath your feet!  So, how do you read a rock?  What is a fossil, and what can they tell us?  And how has the Earth evolved through time?</p>
+		</div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-ever-changing-earth-changing-earth.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-ever-changing-earth-fossil-puzzles.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-ever-changing-earth-geology.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-ever-changing-rock-whispering.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Rock_Whispering.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopeverchangingearth"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="everchangingearthaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="everchangingearthaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="everchangingearthaudiofbtn"></div></div>
+    <div id="actualaudio-everchangingearth" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-everchangingearth').html('<audio id="everchangingearthaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Ever_Changing_Earth.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-naturalworld.html", {transition: "slide", reverse: true });
+      bgsoundeverchangingearth.pause(); 
+      bgsoundeverchangingearth.currentTime = 0;
+      naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopeverchangingearth").on('tap', function() {
+      if(!playing) {
+        everchangingearthaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        everchangingearthaudio.pause(); everchangingearthaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#everchangingearthaudioplbtn").on('tap', function() {
+      if(!paused) {
+        everchangingearthaudio.pause();
+        paused = true;
+      } else {
+        everchangingearthaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#everchangingearthaudiofbtn").on('tap', function() {
+      var ctime = everchangingearthaudio.currentTime;
+      everchangingearthaudio.currentTime = ctime + 10;
+    });
+    
+    $("#everchangingearthaudiobbtn").on('tap', function() {
+      var ctime = everchangingearthaudio.currentTime;
+      everchangingearthaudio.currentTime = ctime - 10;
+    });
+    
+    $("#everchangingearthaudiopsbtn").on('tap', function() {
+      everchangingearthaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

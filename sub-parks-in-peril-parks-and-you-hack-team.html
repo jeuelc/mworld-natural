@@ -1,0 +1,176 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-parks-and-you-hack-team">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Hack Groups</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="crownlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Crown_Of_Thorns_Hi_Res.jpg', 'The crown of thorns starfish is an invasive species which causes huge damage on the coastlines of Australia.  It eats other starfish and coral, and often out competes the native species.');">click here</a>
+        
+		<a id="gorselink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Gorse_Hi_Res.jpg', 'It would be great if we could travel as fast as possible!  But we need to pay for lots of other things as well!  1 kilometre of vacuum train track could cost as much as some entire rail systems!');">click here</a>
+		
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Creating_Parks.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Creating_Parks_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left:90px;top:180px;width:70px;height:50px;"></div>
+              <div id="falseans" style="position:absolute;left:200px;top:180px;width:70px;height:50px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Creating_Parks.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Crown_Of_Thorns.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Group/Gorse.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>One very valuable job that volunteer groups do is to keep an eye out for invasive plants and animals and report sightings to the local park managers.  Sometimes they even work with park rangers as part of 'hack teams' to pull out weeds and replace them with native plants.</p>
+		<p>The situation is so bad in some parks that there are almost as many invasive plant species as there are natives!  Some invasive species tend to grow and spread aggressively and out-compete native species.</p>
+		<p>Stopping exotic species from coming in to the park in the first place is the best solution.  You can help do this by making sure you clean your hiking boots or mountain bike tyres between trips to different parks.  Seeds can get trapped in the mud on your boots or tyres and travel along with you as you move about.  They fall off and start to grow and could become a new problem plant in your favourite park.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstophackteam"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="hackteamaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="hackteamaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="hackteamaudiofbtn"></div></div>
+    <div id="actualaudio-hackteam" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-hackteam').html('<audio id="hackteamaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Hack_team.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-parks-and-you-hack-team").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $('#falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#crownlink')[0].click();
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#gorselink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-parks-and-you.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstophackteam").on('tap', function() {
+      if(!playing) {
+        hackteamaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        hackteamaudio.pause(); hackteamaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#hackteamaudioplbtn").on('tap', function() {
+      if(!paused) {
+        hackteamaudio.pause();
+        paused = true;
+      } else {
+        hackteamaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#hackteamaudiofbtn").on('tap', function() {
+      var ctime = hackteamaudio.currentTime;
+      hackteamaudio.currentTime = ctime + 10;
+    });
+    
+    $("#hackteamaudiobbtn").on('tap', function() {
+      var ctime = hackteamaudio.currentTime;
+      hackteamaudio.currentTime = ctime - 10;
+    });
+    
+    $("#hackteamaudiopsbtn").on('tap', function() {
+      hackteamaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

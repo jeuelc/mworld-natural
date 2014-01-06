@@ -1,0 +1,190 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-wipe-out">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Wipe Out!</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/KT_Boundary_Hi_Res.jpg', 'The cream, centimetres thick, iridium-rich sedimentary layer in the middle represents the K  Pg boundary!  Courtesy: Michelle Gilders / Alamy');">click here</a>
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/Post_Me_Hi_Res.JPG', 'When the light returned after disaster, ferns would take over, followed by trees.  Meanwhile, the furry, warm-blooded mammals emerged to claim the land that the dinosaurs had left behind.  Courtesy: Science Photo Library/ Getty');">click here</a>		
+      
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/Creatures_Of_Cret.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/Extinction_Survivor.png" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+            <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/KT_Boundary.jpg" alt="" />
+          </div>
+          <div id="pol4"class="pPiece" style="left:70px;top:270px;">
+            <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/Post_Me.jpg" alt="" />
+          </div>
+          
+        </div><!--/zoomwrapper-->
+      </div>
+      
+		<div class="bpcontenteverchangingearth">
+			<p>Plants and animals have evolved to suit their environment ... but disaster occurs when the environment changes too quickly for organisms to adjust: a sure way to cause an extinction at the local scale or the entire species!</p>
+
+			<p>Remember that sediments are laid down over time: the longer the time frame, the more sediment is deposited ... so sudden environmental changes, like the ones that cause extinctions, are shown by thin rock layers.  It's like a complex tragedy written in very fine print!</p>
+
+			<p>At the boundary line in the rock between the Cretaceous and the Palaeogene Periods (or 'K-Pg boundary') 66 million years ago, one such sudden event took place.  The first clue that something disastrous happened was that dinosaur and other large reptilian fossils were abundant below the boundary, and completely missing from the rocks above it!  But the real devastation is hidden in the details... tap the cards to take a closer look!</p>
+		</div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+
+
+
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopWipeOut"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="WipeOutaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="WipeOutaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="WipeOutaudiofbtn"></div></div>
+    <div id="actualaudio-WipeOut" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchWipeOutholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchWipeOut" width="1024" height="748" preload>
+      <source src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Changing_Earth/Wipe_Out/Creatures_Of_Cret.avi" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 3);
+      $('div#pol2').css("z-index", 2);
+      $('div#pol3').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+       $('#watchWipeOutholder').css({"visibility":"hidden", "z-index":-10});		
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      $('#watchMtTungurahuaholder').css({"visibility":"hidden", "z-index":-10});		
+      $('div#pol4 > img').css("-webkit-transform", "rotate(-3deg)");	  
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WipeOut').html('<audio id="WipeOutaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Wipe_Out.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-wipe-out").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+	  watchWipeOut.addEventListener('ended', function() { 
+        $("#watchWipeOutholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchWipeOut").css({"z-index":-1});
+        bgsoundvol.play(); 
+      });
+    
+      $("#watchWipeOut").on('tap', function() {
+        $("#watchWipeOutholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchWipeOut").css({"z-index":-1});
+        bgsoundvol.play();
+        watchWipeOut.pause();
+        watchWipeOut.currentTime = 0;
+      });    
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-changing-earth.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopWipeOut").on('tap', function() {
+      if(!playing) {
+        WipeOutaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WipeOutaudio.pause(); WipeOutaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WipeOutaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WipeOutaudio.pause();
+        paused = true;
+      } else {
+        WipeOutaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WipeOutaudiofbtn").on('tap', function() {
+      var ctime = WipeOutaudio.currentTime;
+      WipeOutaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WipeOutaudiobbtn").on('tap', function() {
+      var ctime = WipeOutaudio.currentTime;
+      WipeOutaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WipeOutaudiopsbtn").on('tap', function() {
+      WipeOutaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	$("#pol1").on('tap', function(){
+      $("#watchWipeOutholder").css({"visibility":"visible", "z-index":10});
+      $("#watchWipeOut").css({"z-index":9});
+      bgsoundvol.pause();
+      watchWipeOut.play();
+    });
+	
+    $("#pol2").on('tap', function() {
+		$('#img1')[0].click();
+    });
+    $("#pol3").on('tap', function() {
+		$('#img2')[0].click();
+    }); 
+    $("#pol4").on('tap', function() {
+      $('#img3')[0].click();
+    });	
+	
+	
+  </script>
+   <script src="js/fourcardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

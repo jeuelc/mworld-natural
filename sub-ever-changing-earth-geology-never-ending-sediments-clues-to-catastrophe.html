@@ -1,0 +1,185 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-geology-never-ending-sediments-clues-to-catastrophe">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Clues to Catastrophe</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">	
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Clues_To_Catastrophe/Fossil_Det.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Clues_To_Catastrophe/Fossil_Det_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left: 169px;top: 115px;width: 159px;height: 23px;"></div>
+              <div class="falseans" style="position:absolute;left: 169px;top: 139px;width: 159px;height: 23px;"></div>
+			  <div class="falseans" style="position:absolute;left: 169px;top: 163px;width: 159px;height: 23px;"></div>
+			  <div class="falseans" style="position:absolute;left: 169px;top: 187px;width: 159px;height: 23px;"></div>
+			  <div class="falseans" style="position:absolute;left: 169px;top: 212px;width: 159px;height: 23px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+		
+         <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Clues_To_Catastrophe/Smoosh_Hi_Res.jpg', 'This dramatic rock feature, called a \'slump structure\', was formed when a prehistoric volcanic rumble dislodged large blocks of sedimentary layers.  This caused them to slide sideways and become a jumbled mess!  Afterwards, regular rock formation continued, laying down flat beds of sediments on top, Chatham Island, New Zealand.  Courtesy: Dr Chris Mays, Monash University');">click here</a>	     
+        <div id="zoomwrapper">
+			<!-- Read me -->
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Clues_To_Catastrophe/Fossil_Det.png" alt="" />
+          </div>
+          <div id="polb2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Clues_To_Catastrophe/Smoosh.jpg" alt="" />
+          </div>	  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+		<div class="bpcontenteverchangingearth">
+			<p>Rock layers record the environments of Earth's past, even during times of dramatic change!  In fact, the biggest and baddest events leave the most spectacular rock formations.  Most rock formation is a slow, steady process... but when a volcano erupts, an earthquake triggers a landslide, or an avalanche tumbles down a mountain, these rapid events can move an enormous amount of sediment in the blink of an eye.  At the same time, these violent events cause erosion, whereby rocks are removed from their original position, disrupting many long years of previous rock formation. This creates a time-gap, or 'erosional unconformity' in the rock layers. </p>
+
+			<p>Once things have settled down, the normal slow rock formation takes over again.  The 'disaster sediments' get buried and form sedimentary rocks, leaving clues of the catastrophe behind.  
+			</p>
+		</div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+
+
+
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopCluesToCatastrophe"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="CluesToCatastropheaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="CluesToCatastropheaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="CluesToCatastropheaudiofbtn"></div></div>
+    <div id="actualaudio-CluesToCatastrophe" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#polb1').css("z-index", 2);
+      $('div#polb2').css("z-index", 1);
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-CluesToCatastrophe').html('<audio id="CluesToCatastropheaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Clues_To_Catastrophe.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-geology-never-ending-sediments-clues-to-catastrophe").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+  
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-geology-never-ending-sediments.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopCluesToCatastrophe").on('tap', function() {
+      if(!playing) {
+        CluesToCatastropheaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        CluesToCatastropheaudio.pause(); CluesToCatastropheaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#CluesToCatastropheaudioplbtn").on('tap', function() {
+      if(!paused) {
+        CluesToCatastropheaudio.pause();
+        paused = true;
+      } else {
+        CluesToCatastropheaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#CluesToCatastropheaudiofbtn").on('tap', function() {
+      var ctime = CluesToCatastropheaudio.currentTime;
+      CluesToCatastropheaudio.currentTime = ctime + 10;
+    });
+    
+    $("#CluesToCatastropheaudiobbtn").on('tap', function() {
+      var ctime = CluesToCatastropheaudio.currentTime;
+      CluesToCatastropheaudio.currentTime = ctime - 10;
+    });
+    
+    $("#CluesToCatastropheaudiopsbtn").on('tap', function() {
+      CluesToCatastropheaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+    $('.falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#polb1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#polb1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+
+    $("#polb2").on('tap', function() {
+		$('#img1')[0].click();
+    });
+
+	
+  </script>
+   <script src="js/twocardLogicb.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

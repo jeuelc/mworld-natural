@@ -1,0 +1,103 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection-buffering-and-connecting-parks-Life-of-Ranger">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1><!-- Life of A Ranger --></h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navparksperilprotection-life-of-ranger-content">
+        <p>Imagine you're a ranger at Table Mountain National Park in South Africa.  You've noticed that populations of the endangered African Penguin have been declining over the past few years.  Why do you think this might be?</p>
+		<p>We know that Cape Town has been getting hotter  maybe the heat has been damaging the eggs or killing the chicks.  Hmmmm... how can you let people know about the plight of the African Penguin?  A good way might be to show the penguins to visitors  maybe they will be inspired to help in the conservation effort!</p>
+		<p>Park rangers also do a lot of work that doesn't involve animals at all, like patrolling the walkways to make sure visitors aren't trampling the beach and frightening animals.  You might also need to travel deep into the strictly protected areas of the park to clear invasive weeds.  Or you may have to fix a broken water main to make sure the toilets work for the visitors!  There's a lot more to being a park ranger than meets the eye!</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+  </div><!-- end content -->  
+    
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstoplifeofranger"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="lifeofrangeraudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="lifeofrangeraudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="lifeofrangeraudiofbtn"></div></div>
+    <div id="actualaudio-lifeofranger" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-lifeofranger').html('<audio id="lifeofrangeraudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/lifeofranger.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-lifeofranger-buffering-and-connecting-parks-Life-of-Ranger").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-super-fast-parksperil.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstoplifeofranger").on('tap', function() {
+      if(!playing) {
+        lifeofrangeraudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        lifeofrangeraudio.pause(); lifeofrangeraudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#lifeofrangeraudioplbtn").on('tap', function() {
+      if(!paused) {
+        lifeofrangeraudio.pause();
+        paused = true;
+      } else {
+        lifeofrangeraudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#lifeofrangeraudiofbtn").on('tap', function() {
+      var ctime = lifeofrangeraudio.currentTime;
+      lifeofrangeraudio.currentTime = ctime + 10;
+    });
+    
+    $("#lifeofrangeraudiobbtn").on('tap', function() {
+      var ctime = lifeofrangeraudio.currentTime;
+      lifeofrangeraudio.currentTime = ctime - 10;
+    });
+    
+    $("#lifeofrangeraudiopsbtn").on('tap', function() {
+      lifeofrangeraudio.pause();
+    });
+	
+  </script>
+</div> <!--//home-->

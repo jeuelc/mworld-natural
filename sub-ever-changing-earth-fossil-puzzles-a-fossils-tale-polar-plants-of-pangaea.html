@@ -1,0 +1,115 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-fossil-puzzles-a-fossils-tale-polar-plants-of-pangaea">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Polar plants of Pangaea</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="naveverchangingearth-polarplantsofpangaea">
+		<p><i>'Glossopteris'</i> is a type of fossil leaf found in rocks from the 'Permian Period' on the geological time scale.  That was from about 252 - 290 million years ago.  This leaf fossil was first found in India and Australia during the early 1800s.  Soon after, however, these fossils were found all around the Southern Hemisphere, including Africa, New Zealand, South America and even the rocks of frozen Antarctica.</p>
+
+		<p>How could all of these places, which are separated by thousands of kilometres of ocean today, have had the same plants living on them?  These fossils gave geologists clues about one of the most important ideas of Earth science - that the continents move!</p>
+
+		<p>During the Permian Period, all the continents where <i>Glossopteris</i> had been found were huddled around the South Pole, as part of the ancient SUPERcontinent 'Pangaea'.  The southern part of this supercontinent was covered in lush <i>Glossopteris</i> forests.  But hang on a minute  how could <i>Glossopteris</i> thrive at the South Pole, a frozen wasteland region today?</p>
+	 </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+  </div> <!-- end content -->  
+
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopPolarPlantsOfPangaea"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="PolarPlantsOfPangaeaaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="PolarPlantsOfPangaeaaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="PolarPlantsOfPangaeaaudiofbtn"></div></div>
+    <div id="actualaudio-PolarPlantsOfPangaea" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-PolarPlantsOfPangaea').html('<audio id="PolarPlantsOfPangaeaaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Polar_Plants_Of_Pangaea.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-fossil-puzzles-a-fossils-tale-polar-plants-of-pangaea").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-fossil-puzzles-a-fossils-tale.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopPolarPlantsOfPangaea").on('tap', function() {
+      if(!playing) {
+        PolarPlantsOfPangaeaaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        PolarPlantsOfPangaeaaudio.pause(); PolarPlantsOfPangaeaaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#PolarPlantsOfPangaeaaudioplbtn").on('tap', function() {
+      if(!paused) {
+        PolarPlantsOfPangaeaaudio.pause();
+        paused = true;
+      } else {
+        PolarPlantsOfPangaeaaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#PolarPlantsOfPangaeaaudiofbtn").on('tap', function() {
+      var ctime = PolarPlantsOfPangaeaaudio.currentTime;
+      PolarPlantsOfPangaeaaudio.currentTime = ctime + 10;
+    });
+    
+    $("#PolarPlantsOfPangaeaaudiobbtn").on('tap', function() {
+      var ctime = PolarPlantsOfPangaeaaudio.currentTime;
+      PolarPlantsOfPangaeaaudio.currentTime = ctime - 10;
+    });
+    
+    $("#PolarPlantsOfPangaeaaudiopsbtn").on('tap', function() {
+      PolarPlantsOfPangaeaaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+
+	
+  </script>
+</div> <!--//home-->

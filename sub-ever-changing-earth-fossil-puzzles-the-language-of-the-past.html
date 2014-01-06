@@ -1,0 +1,152 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-fossil-puzzles-the-language-of-the-past">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Language of The Past</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Language_Of_The_Past/Tril_V_Scorp_Hi_Res.jpg', 'Trilobites (left) are an extinct group that were a bit like underwater cockroaches  their presence  is a sign that this rock formed in the ocean.  Amber (right), is most likely found in sedimentary rocks that formed on or near dry land.');">click here</a>
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Language_Of_The_Past/Tree_Rings_Hi_Res.jpg', 'The faint growth rings (left) are showing that this tree was growing almost continuously  typical of a tropical environment.  The dark rings (right), indicate periods of slow growth during cold, dark winters, typical of environments near the Poles.');">click here</a>		
+      
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Language_Of_The_Past/Tril_V_Scorp.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Fossil_Puzzles/The_Language_Of_The_Past/Tree_Rings.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+		<div class="bpcontenteverchangingearth">
+			<p>Plants and animals have evolved to suit the environment around them.  Because of this, looking at the fossils in a rock gives you clues about the environment the rock formed in.</p>
+			<p>'Marine', or ocean-dwelling, creatures such as shellfish are good signs that the sedimentary rock formed in the ocean.  In comparison, dinosaurs, trees and other land-loving organisms indicate environments above sea-level.</p>
+
+			<p>The size of the 'growth rings' you can see in fossil wood tell you the rate at which the tree grew.  Because plants need light to grow, these rings reveal whether the tree was basking in the sun or had limited light.</p>
+
+			<p>Seawater is rich in carbon and oxygen, two elements that sea animals use to breathe and build their shells.  But these elements change with temperature - so the chemistry of fossil shells can tell you how hot or cold the seawater was when the animal was living.
+			Remember: fossils are like puzzle pieces - the more we have, the more complete our picture will be!</p>
+
+		</div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+
+
+
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopTheLanguageOfThePast"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="TheLanguageOfThePastaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="TheLanguageOfThePastaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="TheLanguageOfThePastaudiofbtn"></div></div>
+    <div id="actualaudio-TheLanguageOfThePast" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-TheLanguageOfThePast').html('<audio id="TheLanguageOfThePastaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Wipe_Out.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-fossil-puzzles-the-language-of-the-past").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+  
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-fossil-puzzles.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopTheLanguageOfThePast").on('tap', function() {
+      if(!playing) {
+        TheLanguageOfThePastaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        TheLanguageOfThePastaudio.pause(); TheLanguageOfThePastaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#TheLanguageOfThePastaudioplbtn").on('tap', function() {
+      if(!paused) {
+        TheLanguageOfThePastaudio.pause();
+        paused = true;
+      } else {
+        TheLanguageOfThePastaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#TheLanguageOfThePastaudiofbtn").on('tap', function() {
+      var ctime = TheLanguageOfThePastaudio.currentTime;
+      TheLanguageOfThePastaudio.currentTime = ctime + 10;
+    });
+    
+    $("#TheLanguageOfThePastaudiobbtn").on('tap', function() {
+      var ctime = TheLanguageOfThePastaudio.currentTime;
+      TheLanguageOfThePastaudio.currentTime = ctime - 10;
+    });
+    
+    $("#TheLanguageOfThePastaudiopsbtn").on('tap', function() {
+      TheLanguageOfThePastaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	$("#pol1").on('tap', function(){
+		$('#img1')[0].click();
+    });
+	
+    $("#pol2").on('tap', function() {
+		$('#img2')[0].click();
+    });
+
+	
+	
+  </script>
+   <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

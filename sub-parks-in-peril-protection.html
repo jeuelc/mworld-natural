@@ -1,0 +1,144 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Protection</h1></div>
+  <div id="makeparklink" style="position: absolute;left: 57px;top: 50px;width: 123px;height: 115px;"></div>
+  <div id="bufferinglink" style="position: absolute;left: 10px;top: 300px;width: 152px;height: 135px;"></div>
+  <div id="lifesupportlink" style="position: absolute;left: 670px;top: 15px;width: 127px;height: 115px;"></div>
+  <div id="recreationlink" style="position: absolute;left: 837px;top: 300px;width: 142px;height: 125px;"></div>
+  <div id="biospherelink" style="position: absolute;left: 876px;top: 455px;width: 118px;height: 100px;"></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navparksperilprotection-content">
+        <p>People love to travel to parks and protected areas, where they can see beautiful landscapes and interesting native animals or plants.  Sometimes these places also have cultural significance.</p>
+		<p>But the role of parks in your world goes much, much further than scenery!  They can provide you with clean water, food and fuel.  They're even used to source medicines, pollinate crops and to filter the air that you breathe!</p>
+		<p>Making sure there are plenty of parks can also help to regulate the climate.  Trees and plants absorb carbon from the atmosphere.  In fact, the world's parks contain 15% of the world's carbon stocks  thats a lot of carbon!</p>
+		<p>Parks also protect the world's biodiversity hotspots.  Biodiversity hotspots contain many plants and animals that are found nowhere else in the world.  There are 34 of these regions worldwide, covering only a tiny bit of the Earth's surface.  Together they have 75% of the planets most threatened animal species.  To earn its place as one of the world's hotspots, an area has to contain at least 1,500 <a href="#vascularplant" data-rel="popup">vascular plant</a> species, and to still be mainly intact and undisturbed.</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+  </div> <!-- end content -->  
+    
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopprotection"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="protectionaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="protectionaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="protectionaudiofbtn"></div></div>
+    <div id="actualaudio-protection" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <!-- popup for defination -->
+    <div data-role="popup" id="vascularplant" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>Vascular Plant</p>
+			<p>A vascular plant, or higher plant, is a type of plant that grows on land and has special tissues that transport water and minerals throughout the plant.  Some plants that are included in this group are ferns and flowering plants.</p>
+			<div>  <div class="defspeaker"  id="vascularplant"> </div></div>
+			</div>
+	</div>
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-protection').html('<audio id="protectionaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Protection.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-protection").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('#makeparklink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-how-to-make-a-park.html", {transition: "slide"});
+    });
+    
+    $('#bufferinglink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-buffering-and-connecting-parks.html", {transition: "slide"});
+    });
+    
+    $('#lifesupportlink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-the-world-on-life-support.html", {transition: "slide"});
+    });
+    
+	$('#recreationlink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-Recreational-Spiritual-and-Cultural-Connection.html", {transition: "slide"});
+    });
+  
+    $('#biospherelink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-Biodiversity.html", {transition: "slide"});
+    });
+	
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-super-fast-parksperil.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopprotection").on('tap', function() {
+      if(!playing) {
+        protectionaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        protectionaudio.pause(); protectionaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#protectionaudioplbtn").on('tap', function() {
+      if(!paused) {
+        protectionaudio.pause();
+        paused = true;
+      } else {
+        protectionaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#protectionaudiofbtn").on('tap', function() {
+      var ctime = protectionaudio.currentTime;
+      protectionaudio.currentTime = ctime + 10;
+    });
+    
+    $("#protectionaudiobbtn").on('tap', function() {
+      var ctime = protectionaudio.currentTime;
+      protectionaudio.currentTime = ctime - 10;
+    });
+    
+    $("#protectionaudiopsbtn").on('tap', function() {
+      protectionaudio.pause();
+    });
+	//Definations
+       /*$( "#vascularplant" ).bind({
+          popupafterclose: function(event, ui) { 
+                  ecosystemaudio.pause(); 
+           }
+        });*/
+	//Definations ends here
+  </script>
+</div> <!--//home-->

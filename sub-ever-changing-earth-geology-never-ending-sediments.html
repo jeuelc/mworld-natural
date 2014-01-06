@@ -1,0 +1,156 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-geology-never-ending-sediments">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Never-ending sediments</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+
+		
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Hourglass_Hi_Res.jpg', 'If a magical endless hourglass poured sand continuously since the formation of the Earth about 4.5 billion years ago, it would produce enough sand to cover the Sahara Desert of Africa... up to five metres deep!');">click here</a>		
+         <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Lake_Seds_Hi_Res.jpg', 'The millimetre to centimetre thick layers in these sedimentary rocks represent seasonal cycles from a lake.  By adding these up, you can find out how much time the sediments have taken to build up.');">click here</a>	     
+        <div id="zoomwrapper">
+			<!-- Read me -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Clues_To_Catastrophe.png" alt="" />
+          </div>
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Hourglass.jpg" alt="" />
+          </div>
+          <div id="pol3" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Ever_Changing_Earth/Geology/Never_Ending_Sediments/Lake_Seds.jpg" alt="" />
+          </div>		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+		<div class="bpcontenteverchangingearth">
+			<p>Imagine a really slow hourglass that poured one millimetre of sand every year.  This is about the rate that many environments collect sediment.  If you are 10 years old, then the amount of sand that would have piled up in your lifetime would only be about the width of your finger!  But how thick would the sand be after one million years?  One kilometre thick!</p>
+
+			<p>But the Earth is many, many millions of years old  so, how can the Earth hold so much sediment?</p>
+
+			<p>The fact is it can't!  When sediments have filled in a low area on the Earth's surface (called a 'basin') like a river valley, sea or lake, the sediments can get washed away.  This is called 'erosion', and results in large gaps in our geological history of the Earth.  The Earth can also sag under the weight of sediment.  The Earth may seem hard and solid... it sure feels like it when you trip over!  But with kilometres of sediment, and lots of time, even the Earth's surface sags, or 'subsides', under the weight. </p>
+		</div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+
+
+
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopNeverEndingSediments"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="NeverEndingSedimentsaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="NeverEndingSedimentsaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="NeverEndingSedimentsaudiofbtn"></div></div>
+    <div id="actualaudio-NeverEndingSediments" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-NeverEndingSediments').html('<audio id="NeverEndingSedimentsaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Never_Ending_Sediments.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-geology-never-ending-sediments").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+  
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth-geology.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopNeverEndingSediments").on('tap', function() {
+      if(!playing) {
+        NeverEndingSedimentsaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        NeverEndingSedimentsaudio.pause(); NeverEndingSedimentsaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#NeverEndingSedimentsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        NeverEndingSedimentsaudio.pause();
+        paused = true;
+      } else {
+        NeverEndingSedimentsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#NeverEndingSedimentsaudiofbtn").on('tap', function() {
+      var ctime = NeverEndingSedimentsaudio.currentTime;
+      NeverEndingSedimentsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#NeverEndingSedimentsaudiobbtn").on('tap', function() {
+      var ctime = NeverEndingSedimentsaudio.currentTime;
+      NeverEndingSedimentsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#NeverEndingSedimentsaudiopsbtn").on('tap', function() {
+      NeverEndingSedimentsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $("#pol1").on('tap', function() {
+		$.mobile.changePage("sub-ever-changing-earth-geology-never-ending-sediments-clues-to-catastrophe.html", {transition: "slide"});
+    });
+
+    $("#pol2").on('tap', function() {
+		$('#img2')[0].click();
+    });
+    $("#pol3").on('tap', function() {
+		$('#img3')[0].click();
+    });
+	
+	
+  </script>
+   <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

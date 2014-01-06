@@ -1,0 +1,127 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-what-is-park-what-are-they">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Where Are They?</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navparksperilwhatarethey-content">
+        <p>If you added together all the protected areas of land in the world, it would make an area twice the size of Brazil (that is, about 12.7% of the worlds land area).  Most countries have agreed to work together towards a target of protecting 17% of their land.  In recent times we have been doing well with this target  the amount of land protected has doubled in the last 20 years! </p>
+
+		<p>Generally the amount of land protected is higher in developing parts of the world than in developed regions.  Latin America, with 20.4%, has more protected land than any other part of the world.  Why do you think this might be?</p>
+
+		<p>The world's oceans are poorly protected by comparison, with only six million square kilometres protected.  This might sound like a lot, but it is only 1.6% of our world's oceans!  This is the case even though the amount protected has more than doubled over the last decade.  Think about how many people rely on fish for their meals  what would happen if our fish stocks were suddenly gone?</p>
+
+		<p>Although the number and area of protected land and sea is increasing, these areas do not yet represent the full array of the world's habitats. </p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+  </div> <!-- end content -->  
+    
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopwhatarethey"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="whataretheyaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="whataretheyaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="whataretheyaudiofbtn"></div></div>
+    <div id="actualaudio-whatarethey" style="visibility:hidden;"></div>
+  <!--</div>-->
+
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-whatarethey').html('<audio id="whataretheyaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/What_Are_They.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-what-is-park-what-are-they").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('#makeparklink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-whatarethey-how-to-make-a-park.html", {transition: "slide"});
+    });
+    
+    $('#bufferinglink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-whatarethey-buffering-and-connecting-parks.html", {transition: "slide"});
+    });
+    
+    $('#lifesupportlink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-whatarethey-the-world-on-life-support.html", {transition: "slide"});
+    });
+    
+	$('#recreationlink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-whatarethey-Recreational-Spiritual-and-Cultural-Connection.html", {transition: "slide"});
+    });
+  
+    $('#biospherelink').on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-whatarethey-Biodiversity.html", {transition: "slide"});
+    });
+	
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-super-fast-parksperil.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopwhatarethey").on('tap', function() {
+      if(!playing) {
+        whataretheyaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        whataretheyaudio.pause(); whataretheyaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#whataretheyaudioplbtn").on('tap', function() {
+      if(!paused) {
+        whataretheyaudio.pause();
+        paused = true;
+      } else {
+        whataretheyaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#whataretheyaudiofbtn").on('tap', function() {
+      var ctime = whataretheyaudio.currentTime;
+      whataretheyaudio.currentTime = ctime + 10;
+    });
+    
+    $("#whataretheyaudiobbtn").on('tap', function() {
+      var ctime = whataretheyaudio.currentTime;
+      whataretheyaudio.currentTime = ctime - 10;
+    });
+    
+    $("#whataretheyaudiopsbtn").on('tap', function() {
+      whataretheyaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,120 @@
+<!-- i-C-a -->
+<div data-role="page" id="storm">
+  <script src="js/slidebarweather.js"></script>
+  <link rel="stylesheet" href="css/style-extreme-weather.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnweather"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnweather"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnweather"></div></div>
+  <div class="infobtnholder"><div class="infobtnweather"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnweather"></div></div>
+  <div class="menubtnholder"><div class="menubtnweather"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Create your own perfect storm!</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="sub_extreme_weather_creating_strom_text">
+        <p>How do you make the perfect storm? </p>
+        <p>The recipe for each type of storm is unique. Whether it is a tropical cyclone, a supercell, a regular thunderstorm or a winter storm, each requires its own special ingredients.</p>
+        <p>A pinch of low atmospheric pressure here, a dash of warm air there, and a liberal dose of moisture?</p>	
+		<p>Choose your storm ingredients and see then what type of storm you can make!</p>
+ </div>
+        
+      <div class="navbtn1">
+  <p><a href="sub-weather-creating-storm-pagecard1.html" data-transition="slide"><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-weather-creating-storm-pagecard2.html" data-transition="slide" ><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-weather-creating-storm-pagecard3.html" data-transition="slide" ><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-weather-creating-storm-pagecard4.html" data-transition="slide" ><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnweather" id="playstopstorm"></div></div>
+    <div class="bweather"><div class="rwweather" id="stormaudiobbtn"></div></div>
+    <div class="plweather"><div class="plpsweather" id="stormaudioplbtn"></div></div>
+    <div class="fweather"><div class="fwweather" id="stormaudiofbtn"></div></div>
+    <div id="actualaudio-storm" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-storm').html('<audio id="stormaudio" controls preload onpause="playsweather()" onplay="pauseweather()"><source src="audio/Extreme_Weather/storm.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#storm").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundweather.pause(); bgsoundweather.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-extreme-weather.html", {transition: "slide", reverse: true });
+      bgsoundweather.pause();
+      bgsoundweather.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function playsweather() {
+		 bgsoundweather.play();
+	}
+	   
+	function pauseweather() {
+		 bgsoundweather.pause();
+	}
+    /* ******************** */
+    $("#playstopstorm").on('tap', function() {
+      if(!playing) {
+        stormaudio.play();
+        $('.micbtnweather').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        stormaudio.pause(); stormaudio.currentTime = 0;
+        $('.micbtnweather').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#stormaudioplbtn").on('tap', function() {
+      if(!paused) {
+        stormaudio.pause();
+        paused = true;
+      } else {
+        stormaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#stormaudiofbtn").on('tap', function() {
+      var ctime = stormaudio.currentTime;
+      stormaudio.currentTime = ctime + 10;
+    });
+    
+    $("#stormaudiobbtn").on('tap', function() {
+      var ctime = stormaudio.currentTime;
+      stormaudio.currentTime = ctime - 10;
+    });
+    
+    $("#stormaudiopsbtn").on('tap', function() {
+     stormaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

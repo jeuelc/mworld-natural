@@ -1,0 +1,130 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-what-is-park">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Parks And You</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navparksperil-content3">
+        <p>What parks do you have in your local neighbourhood?  How big are they?  What ecosystem services do they provide?  Do they face any threats?  And what biodiversity do they support?</p>
+		<p>Many parks are supported by volunteers or 'friends' groups.  You can join one or start your own!  If you dont have a park close by, lobby your local council to create one, or transform your back yard into a biodiversity mini-park!</p>
+		<p>Perhaps the best thing you can do about your local park is to be proud of it  tell your friends and family about the fascinating creatures that live there and what a good place it is to visit.  Make it the topic of your next school project, or even make it a career by becoming a conservation biologist.</p>
+      </div>
+        
+      <div class="navparksinperilbtn1" style="top:420px;">
+        <p><a href="sub-parks-in-peril-what-is-park-categories.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/What_Is_A_Park/Categories.png"></a></p>
+      </div>
+      <div class="navparksinperilbtn2" style="left:400px;">
+        <p><a href="sub-parks-in-peril-what-is-park-environments.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/What_Is_A_Park/Environments.png"></a></p>
+      </div>
+      <div class="navparksinperilbtn3" style="top:420px;">
+        <p><a href="sub-parks-in-peril-what-is-park-what-are-they.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/What_Is_A_Park/What_Are_They.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopparksandyou"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="bgsoundParksInPerilbbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="bgsoundParksInPerilplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="bgsoundParksInPerilfbtn"></div></div>
+    <div id="actualaudio-parksandyou" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-parksandyou').html('<audio id="bgsoundParksInPeril" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Parks_And_You.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-what-is-park").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundsuperfastparksperil.pause(); bgsoundsuperfastparksperil.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+	
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopparksandyou").on('tap', function() {
+      if(!playing) {
+        bgsoundParksInPeril.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#bgsoundParksInPerilplbtn").on('tap', function() {
+      if(!paused) {
+        bgsoundParksInPeril.pause();
+        paused = true;
+      } else {
+        bgsoundParksInPeril.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#bgsoundParksInPerilfbtn").on('tap', function() {
+      var ctime = bgsoundParksInPeril.currentTime;
+      bgsoundParksInPeril.currentTime = ctime + 10;
+    });
+    
+    $("#bgsoundParksInPerilbbtn").on('tap', function() {
+      var ctime = bgsoundParksInPeril.currentTime;
+      bgsoundParksInPeril.currentTime = ctime - 10;
+    });
+    
+    $("#bgsoundParksInPerilpsbtn").on('tap', function() {
+      bgsoundParksInPeril.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

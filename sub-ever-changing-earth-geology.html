@@ -1,0 +1,129 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-fossil-geology">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Geology: It's a Piece of Cake!</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="naveverchangingearth-geology">
+		<p>All rocks are the same...right?  Well, no... and we know this by the work of geologists (scientists who study how the earth works), who over the last few hundred years have been studying rocks and fossils to piece together the history of the Earth. </p>
+
+		<p>Most rocks that form on the Earth's surface are made up of layers, just like a cake... but not quite as tasty!  Within these layers are written the secret history of our remarkable planet.</p>
+
+		<p>Tap the buttons to discover how you can read Earth's fascinating story from its rocks.</p>
+	 </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+  </div> <!-- end content -->  
+	<div class="geology-making_earth_cake">
+	</div>
+	<div class="geology-layer_upon_layer">
+	</div>
+	<div class="geology-never_ending_sediments">
+	</div>	
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopGeology"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="Geologyaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="Geologyaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="Geologyaudiofbtn"></div></div>
+    <div id="actualaudio-Geology" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Geology').html('<audio id="Geologyaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Geology.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-fossil-geology").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopGeology").on('tap', function() {
+      if(!playing) {
+        Geologyaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Geologyaudio.pause(); Geologyaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Geologyaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Geologyaudio.pause();
+        paused = true;
+      } else {
+        Geologyaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Geologyaudiofbtn").on('tap', function() {
+      var ctime = Geologyaudio.currentTime;
+      Geologyaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Geologyaudiobbtn").on('tap', function() {
+      var ctime = Geologyaudio.currentTime;
+      Geologyaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Geologyaudiopsbtn").on('tap', function() {
+      Geologyaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+	$('.geology-making_earth_cake').on('tap', function() {
+      $.mobile.changePage("sub-ever-changing-earth-geology-making-an-earth-cake.html", {transition: "slide"});
+    });	
+	$('.geology-layer_upon_layer').on('tap', function() {
+      $.mobile.changePage("sub-ever-changing-earth-geology-layer-upon-layer.html", {transition: "slide"});
+    });
+	$('.geology-never_ending_sediments').on('tap', function() {
+      $.mobile.changePage("sub-ever-changing-earth-geology-never-ending-sediments.html", {transition: "slide"});
+    });	
+	
+  </script>
+</div> <!--//home-->

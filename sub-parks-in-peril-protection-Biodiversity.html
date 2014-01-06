@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection-Biodiversity">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Biodiversity</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="huntlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Hunt_Hi_Res.jpg', 'To maintain a healthy and strong ecosystem it is important to have all kinds of organisms.  Lions, warthogs, grass, even fleas and ticks help to keep the system running! ');">click here</a>
+        
+		<a id="dunglink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Dung_Beetles_Hi_Res.jpg', 'Dung beetles might seem little, but they can affect the earth in big ways!  They clean up after elephants and other large animals and they help to spread seeds and fertilise the soil!');">click here</a>
+		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Animals_In_Trouble.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Hunt.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Biodiversity/Dung_Beetles.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>Imagine if all of the forests in the world were cut down and replaced with plantations.  You would still have trees to give you wood and oxygen, but how many animals do you think would live there?</p>
+		<p>Big animals like wolves, tigers and gorillas could not live in plantations  there wouldn't be enough space or food for them.  Many animals also need special habitats or food to be happy and healthy.</p>
+		<p>That's why lots of different landscapes all over the world are protected.  It ensures that lots of different plants and animals have a place to live.  It protects the 'biodiversity' of our world.  Biodiversity isn't just about lions and tigers though, without animals like beetles, frogs and even tiny microorganisms whole ecosystems might collapse.</p>
+		<p>As the human population grows, our impact on our world is increasing.  Did you know that up to half of the worlds animal species are threatened?  And that close to a fifth of the fish stocks in the oceans are depleted?  And that's just the animals we know of  there are many more species that we haven't discovered yet. This means that protecting Earth's biodiversity is more urgent than ever before!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopbiodiversity"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="biodiversityaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="biodiversityaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="biodiversityaudiofbtn"></div></div>
+    <div id="actualaudio-biodiversity" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-biodiversity').html('<audio id="biodiversityaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Biodiversity.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-protection-Biodiversity").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-Biodiversity-animals-in-trouble.html", {transition: "slide"});
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#huntlink')[0].click();
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#dunglink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-protection.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopbiodiversity").on('tap', function() {
+      if(!playing) {
+        biodiversityaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        biodiversityaudio.pause(); biodiversityaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#biodiversityaudioplbtn").on('tap', function() {
+      if(!paused) {
+        biodiversityaudio.pause();
+        paused = true;
+      } else {
+        biodiversityaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#biodiversityaudiofbtn").on('tap', function() {
+      var ctime = biodiversityaudio.currentTime;
+      biodiversityaudio.currentTime = ctime + 10;
+    });
+    
+    $("#biodiversityaudiobbtn").on('tap', function() {
+      var ctime = biodiversityaudio.currentTime;
+      biodiversityaudio.currentTime = ctime - 10;
+    });
+    
+    $("#biodiversityaudiopsbtn").on('tap', function() {
+      biodiversityaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

@@ -1,0 +1,167 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection-the-world-on-life-support-To-Fence-or-not-To-Fence">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>To Fence or Not To Fence?</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="galapagoslink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Life_Support/Fence_Or_Not_Fence/Galapagos_Islands_Hi_Res.jpg', 'Have you heard of the Galapagos giant tortoise?  These tortoises live on a small set of islands in the eastern pacific ocean.  The Galapagos islands are a biological hotspot, biological marine reserve AND a national park.');">click here</a>
+        
+		<div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images9-12/The_Natural_World/Parks_In_Peril/Protection/Life_Support/Fence_Or_Not_Fence/Protecting_The_Prictine.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Life_Support/Fence_Or_Not_Fence/Protecting_The_Prictine_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left:90px;top:180px;width:70px;height:50px;"></div>
+              <div id="falseans" style="position:absolute;left:200px;top:180px;width:70px;height:50px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+		<div id="zoomwrapper">
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Life_Support/Fence_Or_Not_Fence/Protecting_The_Prictine.png" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Life_Support/Fence_Or_Not_Fence/Galapagos_Islands.jpg" alt="" />
+          </div>
+		</div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>With a population of seven billion people that's growing fast, the human race needs a LOT of resources.  Some people think that parks, with their strong ecosystems and abundance of resources, should be available for grazing cattle, mining, harvesting timber or collecting animals and plants.  These are called 'provisioning services' and lots of local communities use their parks for provisioning.</p>
+		<p>It is a pretty tough balancing act to protect the biodiversity of parks while also making sure that people aren't driven to illegal poaching or harvesting to get the resources they need.</p>
+		<p>Sometimes park rangers, ecologists and governments need to get creative!</p>
+		<p>Some parks control activities using permits.  Others provide alternatives, such as creating plant nurseries outside parks for traditional medical plants.  And some parks involve local communities in decision-making and in managing the park.  This can provide opportunities for people to work in tourism and to benefit from visitors attracted to the park.  Some governments even pay local people money to stop taking resources and animals from parks.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopFenceornotFence"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="FenceornotFenceaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="FenceornotFenceaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="FenceornotFenceaudiofbtn"></div></div>
+    <div id="actualaudio-FenceornotFence" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#polb1').css("z-index", 2);
+      $('div#polb2').css("z-index", 1);
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-FenceornotFence').html('<audio id="FenceornotFenceaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/To_Fence_Or_Not_To_Fence.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-protection-the-world-on-life-support-To-Fence-or-not-To-Fence").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $('#falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#polb1").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#polb1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+    $("#polb2").on('tap', function() {
+      $('#galapagoslink')[0].click();
+    });
+	
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-protection.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopFenceornotFence").on('tap', function() {
+      if(!playing) {
+        FenceornotFenceaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        FenceornotFenceaudio.pause(); FenceornotFenceaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#FenceornotFenceaudioplbtn").on('tap', function() {
+      if(!paused) {
+        FenceornotFenceaudio.pause();
+        paused = true;
+      } else {
+        FenceornotFenceaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#FenceornotFenceaudiofbtn").on('tap', function() {
+      var ctime = FenceornotFenceaudio.currentTime;
+      FenceornotFenceaudio.currentTime = ctime + 10;
+    });
+    
+    $("#FenceornotFenceaudiobbtn").on('tap', function() {
+      var ctime = FenceornotFenceaudio.currentTime;
+      FenceornotFenceaudio.currentTime = ctime - 10;
+    });
+    
+    $("#FenceornotFenceaudiopsbtn").on('tap', function() {
+      FenceornotFenceaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogicb.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

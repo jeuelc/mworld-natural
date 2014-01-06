@@ -1,0 +1,180 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection-Recreational-Spiritual-and-Cultural-Connection">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Recreational, Spiritual and Cultural Connection</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="domboshawalink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Recreational/Domboshawa_Caves_Hi_Res.jpg', 'Some parks once had ancient cultures living on the land. If you go to your favourite park you might find some amazing rock art just like this.');">click here</a>
+        
+		<a id="alturismlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Recreational/Alturism_Hi_Res.jpg', 'Parks have lots of benefits for people, but many people protect parks simply to take care of our environment and future generations.');">click here</a>
+		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Recreational/Traditional_Masai_Dance.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Recreational/Domboshawa_Caves.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Recreational/Alturism.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>Have you visited a park to find medicine, food or fuel?  Maybe you went there to see interesting birds or plants, mountains or coastlines, to see a historical landmark or just to hike and camp.  We visit parks for lots of reasons, and all of them are important and valuable.</p>
+		<p>Experiencing nature and visiting natural environments can even be good for your health and well-being, particularly if you live in a town or city.</p>
+		<p>Sometimes great artists travel to forests or mountains to find inspiration for their next masterpiece.</p>
+		<p>Parks provide an amazing array of benefits to humans:  Their beautiful scenery can be like an art gallery, museum or even cathedral to some.  Seeing native wildlife gives us a zoo like no other, and the chance to learn about or study natural areas.   Finally, they can provide us with services and resources. We call this <a href="#ecological" data-rel="popup">'Ecological Capital'</a>.</p>
+		<p>Some parks are home to people  they depend on the protected area for food, firewood and land for grazing.  These people often have a deep cultural connection to the land they live on.</p>
+		<p>But parks are fragile, and too many visitors can be damaging.  You need to make sure never to pick native plants when you are in a park, and to take out anything that you bring in.</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstoprecreational"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="recreationalaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="recreationalaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="recreationalaudiofbtn"></div></div>
+    <div id="actualaudio-recreational" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+    <div data-role="popup" id="ecological" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>Ecological Capital</p>
+			<p>Ecological capital, or natural capital, is the way that we put an economic value on resources or services that we get from the natural world.</p>
+			<div>  <div class="defspeaker"  id="ecological"> </div></div>
+			</div>
+	</div>
+	
+	<!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchLavaFlowholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+		<video id="watchLavaFlow" width="1024" height="748" preload>
+		  <source src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Recreational/Traditional_Masai_Dance.mpg" type="video/mp4">
+		</video>
+    </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+	  $('#watchLavaFlowholder').css({"visibility":"hidden", "z-index":-10});
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-recreational').html('<audio id="recreationalaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Recreational.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-protection-Recreational-Spiritual-and-Cultural-Connection").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+	
+	watchLavaFlow.addEventListener('ended', function() { 
+        $("#watchLavaFlowholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchLavaFlow").css({"z-index":-1});
+        bgsoundParksInPeril.play(); 
+      });
+    
+      $("#watchLavaFlow").on('tap', function() {
+        $("#watchLavaFlowholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchLavaFlow").css({"z-index":-1});
+        bgsoundParksInPeril.play();
+        watchLavaFlow.pause();
+        watchLavaFlow.currentTime = 0;
+      });
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $("#pol1").on('tap', function(){
+      $("#watchLavaFlowholder").css({"visibility":"visible", "z-index":10});
+      $("#watchLavaFlow").css({"z-index":9});
+      bgsoundParksInPeril.pause();
+      watchLavaFlow.play();
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#domboshawalink')[0].click();
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#alturismlink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-protection.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstoprecreational").on('tap', function() {
+      if(!playing) {
+        recreationalaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        recreationalaudio.pause(); recreationalaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#recreationalaudioplbtn").on('tap', function() {
+      if(!paused) {
+        recreationalaudio.pause();
+        paused = true;
+      } else {
+        recreationalaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#recreationalaudiofbtn").on('tap', function() {
+      var ctime = recreationalaudio.currentTime;
+      recreationalaudio.currentTime = ctime + 10;
+    });
+    
+    $("#recreationalaudiobbtn").on('tap', function() {
+      var ctime = recreationalaudio.currentTime;
+      recreationalaudio.currentTime = ctime - 10;
+    });
+    
+    $("#recreationalaudiopsbtn").on('tap', function() {
+      recreationalaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Parks In Peril</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navparksperil-content">
+        <p>When we think of protected areas, many people think of beautiful mountains, pristine jungles and rare animals.  But protected areas can be almost anything, from a stunning coral reef to your backyard!</p>
+		<p>Protected areas or parks might be completely isolated from humans, or people might live in them and depend on their resources to survive.</p>
+		<p>Come with us to see how we are working together to protect the untouched parts of our environment and learn about some incredible protected areas around the world.  You might even learn that there is a fascinating park near you!</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-parks-in-peril-what-is-park.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/What_Is_A_Park.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-parks-in-peril-protection.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-parks-in-peril-reef-rhinos-re-introduction.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos_Re_Introduction.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-parks-in-peril-parks-and-you.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopparksperil"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="parksperilaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="parksperilaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="parksperilaudiofbtn"></div></div>
+    <div id="actualaudio-parksperil" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-parksperil').html('<audio id="parksperilaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Parks_In_Peril_BG.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-naturalworld.html", {transition: "slide", reverse: true });
+      bgsoundParksInPeril.pause(); 
+      bgsoundParksInPeril.currentTime = 0;
+      naturalsoundbg.play();
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopparksperil").on('tap', function() {
+      if(!playing) {
+        parksperilaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        parksperilaudio.pause(); parksperilaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#parksperilaudioplbtn").on('tap', function() {
+      if(!paused) {
+        parksperilaudio.pause();
+        paused = true;
+      } else {
+        parksperilaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#parksperilaudiofbtn").on('tap', function() {
+      var ctime = parksperilaudio.currentTime;
+      parksperilaudio.currentTime = ctime + 10;
+    });
+    
+    $("#parksperilaudiobbtn").on('tap', function() {
+      var ctime = parksperilaudio.currentTime;
+      parksperilaudio.currentTime = ctime - 10;
+    });
+    
+    $("#parksperilaudiopsbtn").on('tap', function() {
+      parksperilaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

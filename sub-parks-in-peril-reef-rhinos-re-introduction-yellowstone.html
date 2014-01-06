@@ -1,0 +1,140 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-reef-rhinos-re-introduction-yellowstone">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Yellowstone</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="springlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/Yellowstone/Spring_Hi_Res.jpg', 'Yellowstone is home to some of the worlds most spectacular geysers. When a geyser erupts hot water and steam explode from the earth! ');">click here</a>
+        
+		<a id="huntinglink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/Yellowstone/Hunting_Wolf_Hi_Res.jpg', 'These wolves are on the hunt!  They are important to keep ecosystems stable, keeping herbivore populations in check.  But farmers often think of wolves as pests, they might eat their sheep or goats!  This is why the wolves were hunted out of Yellowstone originally.');">click here</a>
+		
+		<div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/Yellowstone/Spring.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Reef_Rhinos/Yellowstone/Hunting_Wolf.jpg" alt="" />
+          </div>
+		</div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>Yellowstone National Park was set up in 1872, which means that it is the world's oldest park.  Yellowstone is in Wyoming in the USA and includes mountains, forest, grassland and some spectacular geysers!  It is home to over 60 mammal species including bison, elk, bears and wolves.</p>
+		<p>Wolves haven't always been in Yellowstone.  The species was nearly lost in the USA owing to humans hunting and trapping them and their habitat being destroyed.  But between 1995 and 1997, 41 wild wolves were released into the park, mainly from Canada, and today that population has grown to more than 400 animals!</p>
+		<p>Wolves are important in the ecosystem, helping to keep the populations of their prey (elk and deer) in check.  The success story of their re-introduction into the wild means that American wolves no longer face extinction and the ecosystem is more stable.  If you visit Yellowstone you might just get to see one, or at least, hear it howling at night!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopyellowstone"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="yellowstoneaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="yellowstoneaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="yellowstoneaudiofbtn"></div></div>
+    <div id="actualaudio-yellowstone" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#polb1').css("z-index", 2);
+      $('div#polb2').css("z-index", 1);
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-yellowstone').html('<audio id="yellowstoneaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/YellowStone.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-reef-rhinos-re-introduction-yellowstone").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $('#falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#springlink')[0].click();
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#huntinglink')[0].click();
+    });
+	
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-reef-rhinos-re-introduction.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopyellowstone").on('tap', function() {
+      if(!playing) {
+        yellowstoneaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        yellowstoneaudio.pause(); yellowstoneaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#yellowstoneaudioplbtn").on('tap', function() {
+      if(!paused) {
+        yellowstoneaudio.pause();
+        paused = true;
+      } else {
+        yellowstoneaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#yellowstoneaudiofbtn").on('tap', function() {
+      var ctime = yellowstoneaudio.currentTime;
+      yellowstoneaudio.currentTime = ctime + 10;
+    });
+    
+    $("#yellowstoneaudiobbtn").on('tap', function() {
+      var ctime = yellowstoneaudio.currentTime;
+      yellowstoneaudio.currentTime = ctime - 10;
+    });
+    
+    $("#yellowstoneaudiopsbtn").on('tap', function() {
+      yellowstoneaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

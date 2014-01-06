@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-protection-buffering-and-connecting-parks">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Buffering and Connecting Parks</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="tokyolink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Buffering_Connecting_Parks/Tokyo_Hi_Res.jpg', 'This city has beautiful green areas to visit.  But do you think they support a lot of biodiversity?  What edge effects might they experience?');">click here</a>
+        
+		<a id="rabbitslink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Buffering_Connecting_Parks/Rabbits_Hi_Res.jpg', 'A rabbit might be an adorable and loving pet, but if it escaped from your yard into the local park it could be a problem!  Rabbits breed quickly, eat native plants and burrow into river beds.  This can be troublesome for the native residents of the park!');">click here</a>
+		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Buffering_Connecting_Parks/Life_Of_A_Ranger.png" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Buffering_Connecting_Parks/Tokyo.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Protection/Buffering_Connecting_Parks/Rabbits.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>Sometimes parks are surrounded by 'buffer zones'.  These are strips of land used to minimise the chance of stuff you don't want getting into the park  invasive species, pollution, that kind of thing.  It's like putting a protective bubble around the park, to make sure it isn't harmed.</p>
+		<p>You can also preserve strips of natural habitat to connect parks so that species can move between them.  These are called 'ecological habitat corridors'.  It is best to consider parks as a network of protected areas rather than as isolated patches of habitat.  This is because many species respond to things that stress them by moving to new areas.</p>
+		<p>Figuring out everything about parks is called 'conservation planning'.  Parks need to be in the best spots for their protection.  Being close to cities or surrounded by agriculture or industry can all have different 'edge effects' on the health of our parks.</p>
+		<p>Edge effects aren't just pollution.  They can be something as simple as a pet rabbit escaping from your backyard and making its way into a park!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopbuffering"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="bufferingaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="bufferingaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="bufferingaudiofbtn"></div></div>
+    <div id="actualaudio-buffering" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-buffering').html('<audio id="bufferingaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Buffering_And_Connecting.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-protection-buffering-and-connecting-parks").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-parks-in-peril-protection-buffering-and-connecting-parks-Life-of-Ranger.html", {transition: "slide"});
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#tokyolink')[0].click();
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#rabbitslink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-protection.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopbuffering").on('tap', function() {
+      if(!playing) {
+        bufferingaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        bufferingaudio.pause(); bufferingaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#bufferingaudioplbtn").on('tap', function() {
+      if(!paused) {
+        bufferingaudio.pause();
+        paused = true;
+      } else {
+        bufferingaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#bufferingaudiofbtn").on('tap', function() {
+      var ctime = bufferingaudio.currentTime;
+      bufferingaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bufferingaudiobbtn").on('tap', function() {
+      var ctime = bufferingaudio.currentTime;
+      bufferingaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bufferingaudiopsbtn").on('tap', function() {
+      bufferingaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

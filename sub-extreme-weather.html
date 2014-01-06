@@ -1,0 +1,119 @@
+<!-- i-C-a -->
+<div data-role="page" id="weather">
+  <script src="js/slidebarweather.js"></script>
+  <link rel="stylesheet" href="css/style-extreme-weather.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnweather"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnweather"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnweather"></div></div>
+  <div class="infobtnholder"><div class="infobtnweather"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnweather"></div></div>
+  <div class="menubtnholder"><div class="menubtnweather"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Extreme weather</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="sub_extreme_weather_text">
+        <p>The weather is part of our everyday lives.  From sunny, warm days to cold, rainy days, the weather is with us every moment of every day.  Most of the time we dont think twice about the weather.  But sometimes, the weather makes us stand up and take notice. </p>
+        <p>From spectacularly strong winds to driving sheets of rain; from heat and fire to bitter cold and ice; its the extremes of the weather that can be the most fascinating, but also the most dangerous.</p>
+        <p>Lets take a look at extreme weather from the inside out to see how it works and where it happens.</p>	
+      </div>
+        
+      <div class="navbtn1">
+      <p><a href="sub-weather-definition.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Extreme_Weather/What_Is_Weather.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-weather-forms.html" data-transition="slide" ><img src="css/images/9-12/The_Natural_World/Extreme_Weather/Forms_Of_Extreme_Weather.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-weather-be-prepared.html" data-transition="slide" ><img src="css/images/9-12/The_Natural_World/Extreme_Weather/BePrepared.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-extreme-weather-creating-storm.html" data-transition="slide" ><img src="css/images/9-12/The_Natural_World/Extreme_Weather/Create_Your_Own_Perfect_Storm.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnweather" id="playstopweather"></div></div>
+    <div class="bweather"><div class="rwweather" id="weatheraudiobbtn"></div></div>
+    <div class="plweather"><div class="plpsweather" id="weatheraudioplbtn"></div></div>
+    <div class="fweather"><div class="fwweather" id="weatheraudiofbtn"></div></div>
+    <div id="actualaudio-weather" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-weather').html('<audio id="weatheraudio" controls preload onpause="playsweather()" onplay="pauseweather()"><source src="audio/Extreme_Weather/weather.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#weather").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundweather.pause(); bgsoundweather.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-naturalworld.html", {transition: "slide", reverse: true });
+      bgsoundweather.pause();
+      bgsoundweather.currentTime = 0;
+      naturalsoundbg.play();
+    }
+    
+    function playsweather() {
+         bgsoundweather.play();
+    }
+       
+    function pauseweather() {
+         bgsoundweather.pause();
+    }
+    /* ******************** */
+    $("#playstopweather").on('tap', function() {
+      if(!playing) {
+        weatheraudio.play();
+        $('.micbtnweather').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        weatheraudio.pause(); weatheraudio.currentTime = 0;
+        $('.micbtnweather').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#weatheraudioplbtn").on('tap', function() {
+      if(!paused) {
+        weatheraudio.pause();
+        paused = true;
+      } else {
+        weatheraudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#weatheraudiofbtn").on('tap', function() {
+      var ctime = weatheraudio.currentTime;
+      weatheraudio.currentTime = ctime + 10;
+    });
+    
+    $("#weatheraudiobbtn").on('tap', function() {
+      var ctime = weatheraudio.currentTime;
+      weatheraudio.currentTime = ctime - 10;
+    });
+    
+    $("#weatheraudiopsbtn").on('tap', function() {
+     weatheraudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

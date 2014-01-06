@@ -1,0 +1,104 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-reef-rhinos-re-introduction-the-big-five">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Big Five</h1></div>
+  <div data-role="content" class="kidzcontent">
+	<div class="navparksperilbigfive-content">
+        <p>The Kruger National Park is in the north-east corner of South Africa, stretching along the Mozambique border to the east and Zimbabwe to the north.  It is 19,485 km<sup>2</sup>, or about the size of Wales!  It was established in 1926, making it South Africa's oldest national park.</p>
+		<p>Kruger is best known as a place to see 'the big five'  the species that big game hunters used to hunt.  Today they are the species that tourists most like to see: lion, African elephant, Cape buffalo, black rhinoceros and leopard.</p>
+		<p>Kruger is a hub of biodiversity  but that's not all it is!  It also contains some amazing and important rock art.  The San people were hunter gatherers who lived in the area for 20,000 years before it became a park.  They left a rich history of artwork which can be found here, if you look carefully!</p>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+  </div> <!-- end content -->  
+    
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopbigfive"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="bigfiveaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="bigfiveaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="bigfiveaudiofbtn"></div></div>
+    <div id="actualaudio-bigfive" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-bigfive').html('<audio id="bigfiveaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/BigFive.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-reef-rhinos-re-introduction-the-big-five").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-reef-rhinos-re-introduction.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopbigfive").on('tap', function() {
+      if(!playing) {
+        bigfiveaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        bigfiveaudio.pause(); bigfiveaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#bigfiveaudioplbtn").on('tap', function() {
+      if(!paused) {
+        bigfiveaudio.pause();
+        paused = true;
+      } else {
+        bigfiveaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#bigfiveaudiofbtn").on('tap', function() {
+      var ctime = bigfiveaudio.currentTime;
+      bigfiveaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bigfiveaudiobbtn").on('tap', function() {
+      var ctime = bigfiveaudio.currentTime;
+      bigfiveaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bigfiveaudiopsbtn").on('tap', function() {
+      bigfiveaudio.pause();
+    });
+	
+  </script>
+</div> <!--//home-->

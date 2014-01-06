@@ -1,0 +1,145 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-parks-and-you">
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Parks And You</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navparksperil-content3">
+        <p>What parks do you have in your local neighbourhood?  How big are they?  What <a href="#ecosystem" data-rel="popup">ecosystem services</a> do they provide?  Do they face any threats?  And what biodiversity do they support?</p>
+		<p>Many parks are supported by volunteers or 'friends' groups.  You can join one or start your own!  If you dont have a park close by, lobby your local council to create one, or transform your back yard into a biodiversity mini-park!</p>
+		<p>Perhaps the best thing you can do about your local park is to be proud of it  tell your friends and family about the fascinating creatures that live there and what a good place it is to visit.  Make it the topic of your next school project, or even make it a career by becoming a conservation biologist.</p>
+      </div>
+        
+      <div class="navparksinperilbtn1" style="top:420px;">
+        <p><a href="sub-parks-in-peril-parks-and-you-hononrary-rangers.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hononrary_Rangers.png"></a></p>
+      </div>
+      <div class="navparksinperilbtn2" style="left:400px;">
+        <p><a href="sub-parks-in-peril-parks-and-you-hack-team.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/Hack_Teams.png"></a></p>
+      </div>
+      <div class="navparksinperilbtn3" style="top:420px;">
+        <p><a href="sub-parks-in-peril-parks-and-you-what-about-my-backyard.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_My_Backyard.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopparksandyou"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="parksandyouaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="parksandyouaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="parksandyouaudiofbtn"></div></div>
+    <div id="actualaudio-parksandyou" style="visibility:hidden;"></div>
+  <!--</div>-->
+    <div data-role="popup" id="ecosystem" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>Ecosystem Services</p>
+			<p>These are the services that parks and other green areas provide, like helping to give us pure water, fertile soil, food and medicines.</p>
+			<div>  <div class="defspeaker"  id="ecosystem"> </div></div>
+			<!-- <audio id="ecosystemaudio" controls preload onpause="playaudio()" onplay="pausebg()" style="visibility:hidden;"><source src="audio/Parks_In_Peril/ecosystem.mp3" type="audio/mpeg"></audio> -->
+			</div>
+	</div>
+	
+	
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-parksandyou').html('<audio id="parksandyouaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Parks_And_You.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-parks-in-peril-parks-and-you").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopparksandyou").on('tap', function() {
+      if(!playing) {
+        parksandyouaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        parksandyouaudio.pause(); parksandyouaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#parksandyouaudioplbtn").on('tap', function() {
+      if(!paused) {
+        parksandyouaudio.pause();
+        paused = true;
+      } else {
+        parksandyouaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#parksandyouaudiofbtn").on('tap', function() {
+      var ctime = parksandyouaudio.currentTime;
+      parksandyouaudio.currentTime = ctime + 10;
+    });
+    
+    $("#parksandyouaudiobbtn").on('tap', function() {
+      var ctime = parksandyouaudio.currentTime;
+      parksandyouaudio.currentTime = ctime - 10;
+    });
+    
+    $("#parksandyouaudiopsbtn").on('tap', function() {
+      parksandyouaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    //Definations
+       /*$( "#ecosystem" ).bind({
+          popupafterclose: function(event, ui) { 
+                  ecosystemaudio.pause(); 
+           }
+        });*/
+	//Definations ends here
+  </script>
+</div> <!--//home-->

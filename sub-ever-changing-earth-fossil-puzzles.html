@@ -1,0 +1,129 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-ever-changing-earth-fossil-puzzles">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_ever_changing_earth.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>  
+  <link rel="stylesheet" href="css/style_ever_changing_earth.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtneverchangingearth"></div></div>
+  <div class="mpbtnholder"><div class="mpbtneverchangingearth"></div></div>
+  <div class="cpbtnholder"><div class="cpbtneverchangingearth"></div></div>
+  <div class="infobtnholder"><div class="infobtneverchangingearth"></div></div>
+  <div class="credsbtnholder"><div class="credsbtneverchangingearth"></div></div>
+  <div class="menubtnholder"><div class="menubtneverchangingearth"></div></div>
+  
+  
+  <div data-role="content" class="kidzcontent">
+	<div class="naveverchangingearth-fossilpuzzles">
+		<p> Fossils are signs of ancient life.  They are like puzzle pieces which, when gathered together, give us a picture of prehistoric life and the way life has evolved throughout Earth's history.  They can tell you what extinct animals, plants and other organisms looked like, how they lived and how they related to others. </p>
+
+		<p>Just as fossils tell us about extinct (or living) critters, they can also tell us about 'extinct' environments: conditions on the Earth that are completely different to any that we know today. </p>
+
+		<p>How do you make a fossil?  How can they tell us stories of ancient Earth?  And what stories do they have to tell?  Tap the buttons to find out!</p>
+	 </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+  </div> <!-- end content -->  
+	<div class="fossil-puzzles-the_fossil_formula">
+	</div>
+	<div class="fossil-puzzles-the_language_of_the_past">
+	</div>
+	<div class="fossil-puzzles-a_fossils_tale">
+	</div>	
+	
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtneverchangingearth" id="playstopFossil_Puzzles"></div></div>
+    <div class="beverchangingearth"><div class="rweverchangingearth" id="Fossil_Puzzlesaudiobbtn"></div></div>
+    <div class="pleverchangingearth"><div class="plpseverchangingearth" id="Fossil_Puzzlesaudioplbtn"></div></div>
+    <div class="feverchangingearth"><div class="fweverchangingearth" id="Fossil_Puzzlesaudiofbtn"></div></div>
+    <div id="actualaudio-Fossil_Puzzles" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Fossil_Puzzles').html('<audio id="Fossil_Puzzlesaudio" controls preload onpause="playseverchangingearth()" onplay="pauseeverchangingearth()"><source src="audio/Ever_Changing_Earth/Fossil_Puzzles.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-ever-changing-earth-fossil-puzzles").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    $('.homelinkbh').on('tap', function() { bgsoundeverchangingearth.pause(); bgsoundeverchangingearth.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+		$.mobile.changePage("sub-ever-changing-earth.html", {transition: "slide", reverse: true });
+		bgsoundeverchangingearth.pause(); 
+		bgsoundeverchangingearth.currentTime = 0;
+		naturalsoundbg.play();
+    }
+    
+    function playseverchangingearth() {
+         bgsoundeverchangingearth.play();
+    }
+       
+    function pauseeverchangingearth() {
+         bgsoundeverchangingearth.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopFossil_Puzzles").on('tap', function() {
+      if(!playing) {
+        Fossil_Puzzlesaudio.play();
+        $('.micbtneverchangingearth').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Fossil_Puzzlesaudio.pause(); Fossil_Puzzlesaudio.currentTime = 0;
+        $('.micbtneverchangingearth').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Fossil_Puzzlesaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Fossil_Puzzlesaudio.pause();
+        paused = true;
+      } else {
+        Fossil_Puzzlesaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Fossil_Puzzlesaudiofbtn").on('tap', function() {
+      var ctime = Fossil_Puzzlesaudio.currentTime;
+      Fossil_Puzzlesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Fossil_Puzzlesaudiobbtn").on('tap', function() {
+      var ctime = Fossil_Puzzlesaudio.currentTime;
+      Fossil_Puzzlesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Fossil_Puzzlesaudiopsbtn").on('tap', function() {
+      Fossil_Puzzlesaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+	$('.fossil-puzzles-the_fossil_formula').on('tap', function() {
+      $.mobile.changePage("sub-ever-changing-earth-fossil-puzzles-the-fossil-formula.html", {transition: "slide"});
+    });	
+	$('.fossil-puzzles-the_language_of_the_past').on('tap', function() {
+      $.mobile.changePage("sub-ever-changing-earth-fossil-puzzles-the-language-of-the-past.html", {transition: "slide"});
+    });
+	$('.fossil-puzzles-a_fossils_tale').on('tap', function() {
+      $.mobile.changePage("sub-ever-changing-earth-fossil-puzzles-a-fossils-tale.html", {transition: "slide"});
+    });	
+	
+  </script>
+</div> <!--//home-->

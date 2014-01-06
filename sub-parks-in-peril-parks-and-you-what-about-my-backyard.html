@@ -1,0 +1,143 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-parks-in-peril-parks-and-you-what-about-my-backyard">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_parks_in_peril.js"></script>
+  <link rel="stylesheet" href="css/style_parks_in_peril.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnparksperil"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnparksperil"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnparksperil"></div></div>
+  <div class="infobtnholder"><div class="infobtnparksperil"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnparksperil"></div></div>
+  <div class="menubtnholder"><div class="menubtnparksperil"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>What About Your Backyard?</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="classiclink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_Your_Backyard/Classic_Garden_Hi_Res.jpg', 'A garden like this can be home to hundreds of beetles, lizards, butterflies and bees!  A thriving ecosystem in miniature! ');">click here</a>
+        
+		<a id="rottinglink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_Your_Backyard/Rotting_Log_Hi_Res.jpg', 'A rotting log like this one can be a hub of activity for your mini park.  Beetles and grubs can feed on the wood, and they will attract lizards, frogs and even birds! ');">click here</a>
+		
+		<a id="pondlink" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_Your_Backyard/Pond_Hi_Res.jpg', 'A small pond can be a great addition to your biodiversity mini park, it attracts insects and frogs. You might see some native water birds.');">click here</a>
+		
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_Your_Backyard/Classic_Garden.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_Your_Backyard/Rotting_Log.jpg" alt="" />
+          </div>
+		  <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Parks_In_Peril/Parks_And_You/What_About_Your_Backyard/Pond.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentparksperil">
+        <p>Urban green spaces are patches of habitat left in cities and residential areas.  These can be important stepping stones for wildlife moving across the landscape, or habitats for some species.  For people living in the city, they can be the only place to see plants and animals in a semi-natural setting.  Interacting with nature is good for you!  Your physical health is better, your brain works better and your psychological wellbeing is better.</p>
+		<p>Even though some of these green spaces are not formally protected parks, they can contribute a lot to biodiversity and your quality of life.</p>
+		<p>Even your garden can be an important wildlife refuge or miniature protected area.  If you fill your garden with native plants and lots of nooks and crannies to create microhabitats, lizards, frogs, butterflies, beetles and birds will flock to pay a visit and perhaps even move in!   Give them some rotting logs, leaf litter and a small garden pond and watch what happens!  But remember, if you have cats they should be indoors at night, so that they don't hunt all of the critters living in your park!</p>
+      </div>
+       
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnparksperil" id="playstopbackyard"></div></div>
+    <div class="bparksperil"><div class="rwparksperil" id="backyardaudiobbtn"></div></div>
+    <div class="plparksperil"><div class="plpsparksperil" id="backyardaudioplbtn"></div></div>
+    <div class="fparksperil"><div class="fwparksperil" id="backyardaudiofbtn"></div></div>
+    <div id="actualaudio-backyard" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-backyard').html('<audio id="backyardaudio" controls preload onpause="playsParksInPeril()" onplay="pauseParksInPeril()"><source src="audio/Parks_In_Peril/Backyard.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-parks-in-peril-parks-and-you-what-about-my-backyard").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundParksInPeril.pause(); bgsoundParksInPeril.currentTime = 0;});
+	
+    $("#pol1").on('tap', function() {
+      $('#classiclink')[0].click();
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#rottinglink')[0].click();
+    });
+	
+	$("#pol3").on('tap', function() {
+      $('#pondlink')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-parks-in-peril-parks-and-you.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsParksInPeril() {
+         bgsoundParksInPeril.play();
+    }
+       
+    function pauseParksInPeril() {
+         bgsoundParksInPeril.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopbackyard").on('tap', function() {
+      if(!playing) {
+        backyardaudio.play();
+        $('.micbtnparksperil').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        backyardaudio.pause(); backyardaudio.currentTime = 0;
+        $('.micbtnparksperil').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#backyardaudioplbtn").on('tap', function() {
+      if(!paused) {
+        backyardaudio.pause();
+        paused = true;
+      } else {
+        backyardaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#backyardaudiofbtn").on('tap', function() {
+      var ctime = backyardaudio.currentTime;
+      backyardaudio.currentTime = ctime + 10;
+    });
+    
+    $("#backyardaudiobbtn").on('tap', function() {
+      var ctime = backyardaudio.currentTime;
+      backyardaudio.currentTime = ctime - 10;
+    });
+    
+    $("#backyardaudiopsbtn").on('tap', function() {
+      backyardaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->
