@@ -1,5 +1,5 @@
 /* Main common basic pages */
-#sub-deserts, #sub-deserts-gold-and-power,#sub-deserts-life-in-the-desert,#sub-deserts-whats-a-desert,#sub-deserts-the-future-of-deserts,#sub-deserts-gold-and-power-fossil-fuels{
+#sub-deserts, #sub-deserts-gold-and-power,#sub-deserts-life-in-the-desert,#sub-deserts-whats-a-desert,#sub-deserts-the-future-of-deserts,#sub-deserts-gold-and-power-fossil-fuels, #sub-deserts-gold-and-power-rocks-and-solar,#sub-deserts-gold-and-power-mineral-riches, #sub-deserts-life-in-the-desert-camels-cacti-and-critters, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners{
   background:url('images/9-12/The_Natural_World/Deserts/Deserts_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
@@ -199,7 +199,7 @@
 		position:absolute;
 	}
 /* Common Header Div Design */
-#sub-deserts .bptitleholder, #sub-deserts-gold-and-power .bptitleholder,#sub-deserts-life-in-the-desert .bptitleholder,#sub-deserts-whats-a-desert .bptitleholder,#sub-deserts-the-future-of-deserts .bptitleholder, #sub-deserts-gold-and-power-fossil-fuels .bptitleholder{
+#sub-deserts .bptitleholder, #sub-deserts-gold-and-power .bptitleholder,#sub-deserts-life-in-the-desert .bptitleholder,#sub-deserts-whats-a-desert .bptitleholder,#sub-deserts-the-future-of-deserts .bptitleholder, #sub-deserts-gold-and-power-fossil-fuels .bptitleholder,#sub-deserts-gold-and-power-rocks-and-solar .bptitleholder,#sub-deserts-gold-and-power-mineral-riches .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners .bptitleholder{
 	width: 627px;
 	height: 68px;
 	text-align: center;
@@ -221,7 +221,7 @@
 }
 
 /* Common Header Design h1 */
-#sub-deserts .bptitleholder h1,#sub-deserts-gold-and-power .bptitleholder h1,#sub-deserts-life-in-the-desert .bptitleholder h1,#sub-deserts-whats-a-desert .bptitleholder h1, #sub-deserts-the-future-of-deserts .bptitleholder h1,#sub-deserts-gold-and-power-fossil-fuels .bptitleholder h1{
+#sub-deserts .bptitleholder h1,#sub-deserts-gold-and-power .bptitleholder h1,#sub-deserts-life-in-the-desert .bptitleholder h1,#sub-deserts-whats-a-desert .bptitleholder h1, #sub-deserts-the-future-of-deserts .bptitleholder h1,#sub-deserts-gold-and-power-fossil-fuels .bptitleholder h1,#sub-deserts-gold-and-power-rocks-and-solar .bptitleholder h1,#sub-deserts-gold-and-power-mineral-riches .bptitleholder h1,#sub-deserts-life-in-the-desert-camels-cacti-and-critters .bptitleholder h1,#sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat .bptitleholder h1, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;

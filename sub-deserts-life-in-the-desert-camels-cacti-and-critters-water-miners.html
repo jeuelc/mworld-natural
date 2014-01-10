@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Water Miners</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Miners/Welwitschia_Hi_Res.jpg', 'This welwitschia plant grows as tall as you and lives over a 1000 years!  Its roots can span a radius of 15 metres.  (Courtesy: Thomas Schoch)');">click here</a>
+
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Miners/Tamarisk_Hi_Res.jpg', 'Tamarisks\' long roots enable them to steal water from other nearby plants.  (Courtesy: Ben Bain)');">click here</a>
+		
+		<div id="zoomwrapper">
+			<!-- Image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Miners/Welwitschia.jpg" alt="" />
+          </div>
+
+          <div id="pol2" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Miners/Tamarisk.png" alt="" />
+          </div>
+		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>To obtain water, desert plants have some special adaptations.  Very deep roots can access water that has seeped far below the ground surface.  In some cases, these roots bring water up into the soil, and from there, shallow roots use it during the day.  This process is called 'hydraulic lift'.</p>
+
+		<p>On the other hand, many desert shrubs have shallow roots that extend outwards from the stem in all directions.  Using these spreading roots, the plant gathers water from quite a large area in its surroundings.  Because of this, desert plants often space themselves apart quite widely, so that each can have a share of the rain that soaks into the soil.  A special form of plant spacing is called 'tiger bush'.  This is where plants grow in groves or thickets, separated by bare areas that have no plants.
+		</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopWaterMiners"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="WaterMinersaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="WaterMinersaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="WaterMinersaudiofbtn"></div></div>
+    <div id="actualaudio-WaterMiners" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WaterMiners').html('<audio id="WaterMinersaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Water_Miners.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+
+	
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+	
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });	
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-life-in-the-desert-camels-cacti-and-critters.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWaterMiners").on('tap', function() {
+      if(!playing) {
+        WaterMinersaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WaterMinersaudio.pause(); WaterMinersaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WaterMinersaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WaterMinersaudio.pause();
+        paused = true;
+      } else {
+        WaterMinersaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WaterMinersaudiofbtn").on('tap', function() {
+      var ctime = WaterMinersaudio.currentTime;
+      WaterMinersaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WaterMinersaudiobbtn").on('tap', function() {
+      var ctime = WaterMinersaudio.currentTime;
+      WaterMinersaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WaterMinersaudiopsbtn").on('tap', function() {
+      WaterMinersaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

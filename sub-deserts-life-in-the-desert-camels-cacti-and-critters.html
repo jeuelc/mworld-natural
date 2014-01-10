@@ -1,0 +1,137 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert-camels-cacti-and-critters">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Camels, Cacti and Critters</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+		<div class="navDeserts-content">
+        <p>Living things in deserts are special.  Some plants, like the giant Saguaro cacti of the Sonoran Desert, can store thousands of litres of water inside their tissue.  Their shallow, spreading root systems gather this water quickly when it rains.  This is a kind of insurance, in case it does not rain again for some time.  Other desert plants have special cells that can survive the heat and intense sunshine.</p>
+
+		<p>Desert animals, called 'xerocoles', have special adaptations to hot and dry conditions.  Their body uses water efficiently, and they excrete unusually dry wastes to further conserve moisture.  Some animals hardly ever drink water at all!  Instead, they get sufficient moisture from the food they eat.  But when it does not rain for a long time, it can get so dry that even the hardy desert plants and animals begin to die.  If they can, animals may move to other areas to escape the dry conditions.</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Escaping_The_Heat.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-little-or-none.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Little_Or_None.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Miners.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-storers.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopCamelsCactiAndCritters"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="CamelsCactiAndCrittersaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="CamelsCactiAndCrittersaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="CamelsCactiAndCrittersaudiofbtn"></div></div>
+    <div id="actualaudio-CamelsCactiAndCritters" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-CamelsCactiAndCritters').html('<audio id="CamelsCactiAndCrittersaudio" controls preload onpause="playsDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Camels_Cacti_And_Critters.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-deserts-life-in-the-desert-camels-cacti-and-critters").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-life-in-the-desert.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopCamelsCactiAndCritters").on('tap', function() {
+      if(!playing) {
+        CamelsCactiAndCrittersaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        CamelsCactiAndCrittersaudio.pause(); CamelsCactiAndCrittersaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#CamelsCactiAndCrittersaudioplbtn").on('tap', function() {
+      if(!paused) {
+        CamelsCactiAndCrittersaudio.pause();
+        paused = true;
+      } else {
+        CamelsCactiAndCrittersaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#CamelsCactiAndCrittersaudiofbtn").on('tap', function() {
+      var ctime = CamelsCactiAndCrittersaudio.currentTime;
+      CamelsCactiAndCrittersaudio.currentTime = ctime + 10;
+    });
+    
+    $("#CamelsCactiAndCrittersaudiobbtn").on('tap', function() {
+      var ctime = CamelsCactiAndCrittersaudio.currentTime;
+      CamelsCactiAndCrittersaudio.currentTime = ctime - 10;
+    });
+    
+    $("#CamelsCactiAndCrittersaudiopsbtn").on('tap', function() {
+      CamelsCactiAndCrittersaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

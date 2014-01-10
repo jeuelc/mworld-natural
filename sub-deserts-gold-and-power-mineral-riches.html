@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-gold-and-power-mineral-riches">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Mineral Riches</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Mineral_Riches/Gold_Mine_Hi_Res.jpg', 'This is the world\'s largest gold mine: the Super Pit. It lies at the edge of the Great Victoria Desert in Australia.  (Courtesy: iStock)');">click here</a>	
+		
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Mineral_Riches/Uranium_Hi_Res.jpg', 'We dig up uranite rocks and turn them into these \'billets\' of hazardous enriched uranium.');">click here</a>
+		
+		<div id="zoomwrapper">
+			<!-- Image card -->
+          <div id="pol1"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Mineral_Riches/Gold_Mine.png" alt="" />
+          </div>			
+			<!-- Image card -->
+          <div id="pol2" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Mineral_Riches/Uranium.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+		<p>The water that often moves through the rocks beneath deserts comes from wetter areas outside the desert.  In those wetter areas, the water soaks into the ground, to begin its long journey.  As it seeps along, it can collect materials from the rocks through which it passes.</p>
+
+		<p>Precious metals like gold and uranium can be gathered up in this way, slowly travelling underground in the water.  These materials dissolve in the water partly because, deep underground, the water can become quite hot from the heat escaping from the interior of the Earth.  At special locations beneath the desert, the metals are set down and left behind, as the water keeps moving.</p>
+
+		<p>Over long periods of time, this slow process forms rich ore deposits that can be mined.  The deserts in Australia have the biggest deposits of uranium in the world.  Ore bodies that formed in this way, laid down from warm underground water, are called 'hydrothermal' deposits.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopMineralRiches"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="MineralRichesaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="MineralRichesaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="MineralRichesaudiofbtn"></div></div>
+    <div id="actualaudio-MineralRiches" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-MineralRiches').html('<audio id="MineralRichesaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Mineral_Riches.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-gold-and-power-mineral-riches").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+
+	
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-gold-and-power.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopMineralRiches").on('tap', function() {
+      if(!playing) {
+        MineralRichesaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        MineralRichesaudio.pause(); MineralRichesaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#MineralRichesaudioplbtn").on('tap', function() {
+      if(!paused) {
+        MineralRichesaudio.pause();
+        paused = true;
+      } else {
+        MineralRichesaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#MineralRichesaudiofbtn").on('tap', function() {
+      var ctime = MineralRichesaudio.currentTime;
+      MineralRichesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#MineralRichesaudiobbtn").on('tap', function() {
+      var ctime = MineralRichesaudio.currentTime;
+      MineralRichesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#MineralRichesaudiopsbtn").on('tap', function() {
+      MineralRichesaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->
