@@ -1,0 +1,129 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-gold-and-power">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Gold and Power</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navDeserts-content3">
+        <p>Deserts may lack water, but many are rich in other resources.  Most of the world's oil is held in rocks that lie under the deserts around the Persian Gulf.  Between them, just four countries - Saudi Arabia, Iraq, Iran, and the United Arab Emirates - have more than half of all the world's known oil reserves.</p>
+		<p>Oil and gas from these desert areas will one day become scarce.  But the deserts have other sources of energy that we can use!  They have abundant sunshine, and this is just what is needed for generating solar power.  Because it has so few clouds, the central Sahara Desert receives on average about 11 hours of sunshine per day.  The sunlight is very strong, and can deliver more than 1000 watts of power per square metre.</p>
+      </div>
+        
+      <div class="navbtn1" style="top:420px;">
+        <p><a href="sub-deserts-gold-and-power-hot-rocks-and-solar.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Hot_Rocks_And_Solar.png"></a></p>
+      </div>
+      <div class="navbtn2" style="left:410px;">
+        <p><a href="sub-deserts-gold-and-power-fossil-fuels.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Fossil_Fuels.png"></a></p>
+      </div>
+      <div class="navbtn3" style="top:420px;">
+        <p><a href="sub-deserts-gold-and-power-mineral-riches.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Mineral_Riches.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopGoldAndPower"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="GoldAndPoweraudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="GoldAndPoweraudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="GoldAndPoweraudiofbtn"></div></div>
+    <div id="actualaudio-GoldAndPower" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-GoldAndPower').html('<audio id="GoldAndPoweraudio" controls preload onpause="playsDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Gold_And_Power.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-deserts-gold-and-power").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopGoldAndPower").on('tap', function() {
+      if(!playing) {
+        GoldAndPoweraudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        GoldAndPoweraudio.pause(); GoldAndPoweraudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#GoldAndPoweraudioplbtn").on('tap', function() {
+      if(!paused) {
+        GoldAndPoweraudio.pause();
+        paused = true;
+      } else {
+        GoldAndPoweraudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#GoldAndPoweraudiofbtn").on('tap', function() {
+      var ctime = GoldAndPoweraudio.currentTime;
+      GoldAndPoweraudio.currentTime = ctime + 10;
+    });
+    
+    $("#GoldAndPoweraudiobbtn").on('tap', function() {
+      var ctime = GoldAndPoweraudio.currentTime;
+      GoldAndPoweraudio.currentTime = ctime - 10;
+    });
+    
+    $("#GoldAndPoweraudiopsbtn").on('tap', function() {
+      GoldAndPoweraudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

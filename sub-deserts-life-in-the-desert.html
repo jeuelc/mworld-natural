@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Life in the Desert</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+		<div class="navDeserts-content">
+        <p>Surprisingly, deserts are full of life.  With so little water, how can this be?  The answer is that desert organisms have special adaptations that help them survive with very little rainfall.</p>
+
+		<p>Desert plants may have very deep roots to find water.  They might also have small leaves, so that the plant does not lose too much water through transpiration.  Other desert plants get their water from dew, and don't mind if it does not rain.</p>
+		<p>Animals such as camels may be able to go two weeks without drinking, while others live underground to escape the heat of the day.  They come out at night when it is cooler to look for food.  Before dawn, they disappear underground once more, and as a result, are rarely seen.  Some birds travel very long distances  even thousands of kilometres  to find desert lakes that have been filled by recent rain.  How they locate the lakes far off over the horizon, and know which way to fly, remains something of a mystery.</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-deserts-life-in-the-desert-nomadic-life.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-deserts-life-in-the-desert-desert-cities.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Desert_Cities.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-deserts-life-in-the-desert-precious-water.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Precious_Water.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-deserts-life-in-the-desert-camels-cacti-and-critters.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopLifeInTheDesert"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="LifeInTheDesertaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="LifeInTheDesertaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="LifeInTheDesertaudiofbtn"></div></div>
+    <div id="actualaudio-LifeInTheDesert" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-LifeInTheDesert').html('<audio id="LifeInTheDesertaudio" controls preload onpause="playsDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Life_In_The_Desert.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-deserts-life-in-the-desert").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopLifeInTheDesert").on('tap', function() {
+      if(!playing) {
+        LifeInTheDesertaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        LifeInTheDesertaudio.pause(); LifeInTheDesertaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#LifeInTheDesertaudioplbtn").on('tap', function() {
+      if(!paused) {
+        LifeInTheDesertaudio.pause();
+        paused = true;
+      } else {
+        LifeInTheDesertaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#LifeInTheDesertaudiofbtn").on('tap', function() {
+      var ctime = LifeInTheDesertaudio.currentTime;
+      LifeInTheDesertaudio.currentTime = ctime + 10;
+    });
+    
+    $("#LifeInTheDesertaudiobbtn").on('tap', function() {
+      var ctime = LifeInTheDesertaudio.currentTime;
+      LifeInTheDesertaudio.currentTime = ctime - 10;
+    });
+    
+    $("#LifeInTheDesertaudiopsbtn").on('tap', function() {
+      LifeInTheDesertaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->

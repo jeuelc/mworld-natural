@@ -1,0 +1,172 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-gold-and-power-fossil-fuels">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Fossil Fuels</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Fossil_Fuels/Pipeline_Hi_Res.jpg', 'Once crude oil has been found and extracted, it often needs to be transported through thousands of kilometres of pipeline before it is refined and used.  (Courtesy: Getty Images)');">click here</a>
+        
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Fossil_Fuels/Fossil_Fuels.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Fossil_Fuels/Fossil_Fuels_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left: 193px;top: 204px;width: 119px;height: 30px;"></div>
+              
+			  <div class="falseans" style="position:absolute;left: 193px;top: 169px;width: 119px;height: 30px;"></div>
+			  <div class="falseans" style="position:absolute;left: 56px;top: 169px;width: 119px;height: 30px;"></div>
+			  <div class="falseans" style="position:absolute;left: 56px;top: 205px;width: 119px;height: 30px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+		<div id="zoomwrapper">
+			<!-- Image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Fossil_Fuels/Pipeline.jpg" alt="" />
+          </div>
+		  
+		  <!-- Quiz -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power/Fossil_Fuels/Fossil_Fuels.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>The oil found under many desert countries is used around the world to fuel buses, cars, and trucks.  Fuel is so vital for modern life that countries sometimes fight over access to oil and gas.  Many countries have little or no oil themselves, and rely on importing it from the oil-rich deserts.  Why are the desert countries like Saudi Arabia and Iran so rich in oil and gas?</p>
+
+		<p>The answer takes us back many millions of years to a time when these areas were covered by shallow seas.  These oceans were at that time located in the tropics.  In these seas, the remains of abundant plants and animals settled to the bottom, and were buried.  Through time, their remains became oil and gas.  Since then, the old sea floors have become land  desert land  and the continents have shifted to their present locations.  The valuable oil is still there, deep underground.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopFossilFuels"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="FossilFuelsaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="FossilFuelsaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="FossilFuelsaudiofbtn"></div></div>
+    <div id="actualaudio-FossilFuels" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-FossilFuels').html('<audio id="FossilFuelsaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Fossil_Fuels.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-gold-and-power-fossil-fuels").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+    $('.falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-gold-and-power.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopFossilFuels").on('tap', function() {
+      if(!playing) {
+        FossilFuelsaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        FossilFuelsaudio.pause(); FossilFuelsaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#FossilFuelsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        FossilFuelsaudio.pause();
+        paused = true;
+      } else {
+        FossilFuelsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#FossilFuelsaudiofbtn").on('tap', function() {
+      var ctime = FossilFuelsaudio.currentTime;
+      FossilFuelsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#FossilFuelsaudiobbtn").on('tap', function() {
+      var ctime = FossilFuelsaudio.currentTime;
+      FossilFuelsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#FossilFuelsaudiopsbtn").on('tap', function() {
+      FossilFuelsaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

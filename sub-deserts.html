@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Deserts</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+		<div class="navDeserts-content">
+			<p>Deserts are places where most of the land is too dry to grow food crops like wheat, rice, or vegetables.  In some extremely dry deserts it rains just a few days in a year.  It can rain more often in less severe deserts.  If you lived in a desert, an umbrella would still be a useful thing to have, but more often to shelter from the hot sun than from rain!</p>
+
+			<p>You might think that deserts have always been that way and that we have nothing to learn them, but as you'll discover, desert plants and animals can teach us plenty about water conservation.  What's more, deserts often hide valuable resources below them as well as being great places to learn about other planets!</p>
+		</div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-deserts-whats-a-desert.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-deserts-life-in-the-desert.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-deserts-the-future-of-deserts.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-deserts-gold-and-power.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Gold_And_Power.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopDeserts"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="Desertsaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="Desertsaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="Desertsaudiofbtn"></div></div>
+    <div id="actualaudio-Deserts" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-Deserts').html('<audio id="Desertsaudio" controls preload onpause="playsDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Deserts.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-deserts").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-naturalworld.html", {transition: "slide", reverse: true });
+      bgsoundDeserts.pause(); 
+      bgsoundDeserts.currentTime = 0;
+      naturalsoundbg.play();
+    }
+    
+    function playsDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopDeserts").on('tap', function() {
+      if(!playing) {
+        Desertsaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        Desertsaudio.pause(); Desertsaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#Desertsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        Desertsaudio.pause();
+        paused = true;
+      } else {
+        Desertsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#Desertsaudiofbtn").on('tap', function() {
+      var ctime = Desertsaudio.currentTime;
+      Desertsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#Desertsaudiobbtn").on('tap', function() {
+      var ctime = Desertsaudio.currentTime;
+      Desertsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#Desertsaudiopsbtn").on('tap', function() {
+      Desertsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

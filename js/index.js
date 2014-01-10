@@ -826,3 +826,11 @@ bgsoundeverchangingearth.addEventListener('ended', function() { bgsoundeverchang
 
 function pauseeverchangingearth() { bgsoundeverchangingearth.pause() }
 function playseverchangingearth() { bgsoundeverchangingearth.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }
+
+/************************ Deserts *******************************/
+var bgsoundDeserts = new Audio();
+bgsoundDeserts.src = "audio/Deserts/Deserts_BG.mp3";
+bgsoundDeserts.addEventListener('ended', function() { bgsoundDeserts.play(); });
+
+function pauseDeserts() { bgsoundDeserts.pause() }
+function playsDeserts() { bgsoundDeserts.play(); $(".audiopanel").css({"backgroundPosition":"0px 0px"}); }

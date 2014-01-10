@@ -1,0 +1,141 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-whats-a-desert">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>What's a Desert?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+		<div class="navDeserts-content">
+        <p>About a third of all the land on Earth is desert.  Even though they can be uncomfortably hot and dry, deserts are home to many people, plants and animals.  Shelter, food, and water are the most precious possessions for people who live in deserts.</p>
+
+			<p>Deserts can be hot!  The record temperature was set in Death Valley in California, where in 1913 it reached 56.7&deg;C in the shade!  At night, deserts can become very cold, with temperatures below freezing point.  The extreme range in a single day makes desert climates especially harsh.</p>
+
+			<p>The other thing that distinguishes deserts is the lack of vegetation.  There may be few if any large trees, and a lot of bare ground or rock.</p>
+ 
+			<p>Although not ideal for farming, some deserts are very rich in minerals and other useful resources.  One resource available in deserts is sunshine.  This makes deserts handy places for generating solar power, which is important to people everywhere.</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-deserts-whats-a-desert-where-are-our-deserts.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Where_Are_Our_Deserts.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-deserts-whats-a-desert-dunes-rocks-and-more.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-deserts-whats-a-desert-why-do-we-have-deserts.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Why_Do_We_Have_Deserts.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-deserts-whats-a-desert-have-deserts-always-been-dry.html" data-transition="slide"><img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Have_Deserts_Always_Been_Dry.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopWhatsADesert"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="WhatsADesertaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="WhatsADesertaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="WhatsADesertaudiofbtn"></div></div>
+    <div id="actualaudio-WhatsADesert" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WhatsADesert').html('<audio id="WhatsADesertaudio" controls preload onpause="playsDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Whats_A_Desert.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-deserts-whats-a-desert").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts.html", {transition: "slide", reverse: true });
+    }
+    
+    function playsDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWhatsADesert").on('tap', function() {
+      if(!playing) {
+        WhatsADesertaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WhatsADesertaudio.pause(); WhatsADesertaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WhatsADesertaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WhatsADesertaudio.pause();
+        paused = true;
+      } else {
+        WhatsADesertaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WhatsADesertaudiofbtn").on('tap', function() {
+      var ctime = WhatsADesertaudio.currentTime;
+      WhatsADesertaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WhatsADesertaudiobbtn").on('tap', function() {
+      var ctime = WhatsADesertaudio.currentTime;
+      WhatsADesertaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WhatsADesertaudiopsbtn").on('tap', function() {
+      WhatsADesertaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+    
+  </script>
+</div> <!--//home-->
