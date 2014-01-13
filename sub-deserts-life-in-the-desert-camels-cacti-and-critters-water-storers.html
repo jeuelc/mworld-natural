@@ -1,0 +1,183 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-storers">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Water Storers</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+	  <!--
+		1 Slice of cactus [image]
+		2 Frog	[image ]
+		3 Bushman video	 [video]  
+	  -->
+	  
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers/Cactus_Slice_Hi_Res.jpg', 'Not a pineapple: Saguaro cacti can live for 100  200 years and soak up 760 litres of water.  (Courtesy: Paul Kaufman)');">click here</a>
+        
+
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers/Frog_Hi_Res.jpg', 'Sleeping in a snot bag: the water-holding frog hides underground in a cocoon of mucus to wait out the hot weather.  (Courtesy: Gunther Schmida)');">click here</a>
+		
+		<!-- video -->
+			
+		<!-- video ends here -->
+		
+		<div id="zoomwrapper">
+			<!-- Image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers/Cactus_Slice.jpg" alt="" />
+          </div>
+		  
+		  <!-- Image card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers/Frog.jpg" alt="" />
+          </div>
+		  
+			<!-- Video card -->
+          <div id="pol3" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers/Bushman_Video.png" alt="" />
+          </div>
+		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>Rain in deserts is unreliable: sometimes it rains for several days in a row, and at other times, there is no rain for months.  Some plants take out a kind of insurance policy to make sure that they don't run out of water.</p>
+
+		<p>The giant Saguaro cactus grows in the Sonoran Desert in Arizona and Mexico.  When it rains, this cactus soaks up water from the wet soil and stores it in masses of pulpy flesh.  The Saguaro has a kind of concertina skin that allows the whole plant to swell up.  When rain does not fall, birds and animals eat the moist flesh of the cactus, so that the stored water helps them survive, as well.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopWaterStorers"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="WaterStorersaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="WaterStorersaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="WaterStorersaudiofbtn"></div></div>
+    <div id="actualaudio-WaterStorers" style="visibility:hidden;"></div>
+  <!-- </div> -->
+ 
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchBushmanVideoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchBushmanVideo" width="1024" height="748" preload>
+      <source src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Storers/Bushman_Video.mov" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WaterStorers').html('<audio id="WaterStorersaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Water_Storers.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-storers").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+	  watchBushmanVideo.addEventListener('ended', function() { 
+        $("#watchBushmanVideoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchBushmanVideo").css({"z-index":-1});
+        bgsoundDeserts.play(); 
+      });
+    
+      $("#watchBushmanVideo").on('tap', function() {
+        $("#watchBushmanVideoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchBushmanVideo").css({"z-index":-1});
+        bgsoundDeserts.play();
+        watchBushmanVideo.pause();
+        watchBushmanVideo.currentTime = 0;
+      });
+	  
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });	
+	$("#pol3").on('tap', function(){
+      $("#watchBushmanVideoholder").css({"visibility":"visible", "z-index":10});
+      $("#watchBushmanVideo").css({"z-index":9});
+      bgsoundDeserts.pause();
+      watchBushmanVideo.play();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-life-in-the-desert-camels-cacti-and-critters.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWaterStorers").on('tap', function() {
+      if(!playing) {
+        WaterStorersaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WaterStorersaudio.pause(); WaterStorersaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WaterStorersaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WaterStorersaudio.pause();
+        paused = true;
+      } else {
+        WaterStorersaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WaterStorersaudiofbtn").on('tap', function() {
+      var ctime = WaterStorersaudio.currentTime;
+      WaterStorersaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WaterStorersaudiobbtn").on('tap', function() {
+      var ctime = WaterStorersaudio.currentTime;
+      WaterStorersaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WaterStorersaudiopsbtn").on('tap', function() {
+      WaterStorersaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

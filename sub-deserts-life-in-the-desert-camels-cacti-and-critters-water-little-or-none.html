@@ -1,0 +1,167 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-little-or-none">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Water: Little or None!</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+	  <!--
+		Card sequence:
+		1 Rat video
+		1 Rat image
+	  -->
+	  
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Little_Or_None/Kangaroo_Rat_Hi_Res.jpg', 'Kangaroo rats are supremely well-adapted to the desert environment.  (Courtesy: Getty Images)');">click here</a>
+		
+		<div id="zoomwrapper">
+		<!-- video card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Little_Or_None/Kangaroo_Rat_Video.png" alt="" />
+          </div>
+		  
+		  <!-- Image card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Little_Or_None/Kangaroo_Rat.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>Can you imagine living in a hot desert but never quenching your thirst with a cool drink?  Remarkably, some animals can do this.</p>
+		<p>Kangaroo rats, small rodents that live in burrows in the Chihuahuan Desert, obtain all the moisture they need from their food.  They mostly eat seeds, but supplement this with some green vegetation and the occasional insect.  They conserve water by only emerging from their burrows after sunset, so that they avoid the hottest part of the day.  Kangaroo rats also have very few sweat glands, and their oily skin also helps them avoid drying out.  They also have the most concentrated urine in the world!</p>
+		<p>Some small desert finches and other seed-eating birds can also live without ever drinking, but how they manage this is not yet fully understood.  Perhaps you could solve this puzzle one day!</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopWaterLittleOrNone"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="WaterLittleOrNoneaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="WaterLittleOrNoneaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="WaterLittleOrNoneaudiofbtn"></div></div>
+    <div id="actualaudio-WaterLittleOrNone" style="visibility:hidden;"></div>
+  <!-- </div> -->
+ 
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchKangarooRatVideoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchKangarooRatVideo" width="1024" height="748" preload>
+      <source src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Camels_Cacti_And_Critters/Water_Little_Or_None/Kangaroo_Rat_Video.mpg" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WaterLittleOrNone').html('<audio id="WaterLittleOrNoneaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Water_Little_Or_None.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-little-or-none").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+	  watchKangarooRatVideo.addEventListener('ended', function() { 
+        $("#watchKangarooRatVideoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchKangarooRatVideo").css({"z-index":-1});
+        bgsoundDeserts.play(); 
+      });
+    
+      $("#watchKangarooRatVideo").on('tap', function() {
+        $("#watchKangarooRatVideoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchKangarooRatVideo").css({"z-index":-1});
+        bgsoundDeserts.play();
+        watchKangarooRatVideo.pause();
+        watchKangarooRatVideo.currentTime = 0;
+      });
+	  
+    $("#pol2").on('tap', function() {
+      $('#img1')[0].click();
+    });
+
+	$("#pol1").on('tap', function(){
+      $("#watchKangarooRatVideoholder").css({"visibility":"visible", "z-index":10});
+      $("#watchKangarooRatVideo").css({"z-index":9});
+      bgsoundDeserts.pause();
+      watchKangarooRatVideo.play();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-life-in-the-desert-camels-cacti-and-critters.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWaterLittleOrNone").on('tap', function() {
+      if(!playing) {
+        WaterLittleOrNoneaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WaterLittleOrNoneaudio.pause(); WaterLittleOrNoneaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WaterLittleOrNoneaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WaterLittleOrNoneaudio.pause();
+        paused = true;
+      } else {
+        WaterLittleOrNoneaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WaterLittleOrNoneaudiofbtn").on('tap', function() {
+      var ctime = WaterLittleOrNoneaudio.currentTime;
+      WaterLittleOrNoneaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WaterLittleOrNoneaudiobbtn").on('tap', function() {
+      var ctime = WaterLittleOrNoneaudio.currentTime;
+      WaterLittleOrNoneaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WaterLittleOrNoneaudiopsbtn").on('tap', function() {
+      WaterLittleOrNoneaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

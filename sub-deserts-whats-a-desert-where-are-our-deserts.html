@@ -1,0 +1,100 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-whats-a-desert-where-are-our-deserts">
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"></div>
+  <div data-role="content" class="kidzcontent">
+     <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+  </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js 
+         note: change the ids to be able play the narration
+    -->
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopWhereAreOurDeserts"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="WhereAreOurDesertsaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="WhereAreOurDesertsaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="WhereAreOurDesertsaudiofbtn"></div></div>
+    <div id="actualaudio-WhereAreOurDeserts" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-WhereAreOurDeserts').html('<audio id="WhereAreOurDesertsaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Where_Are_Our_Deserts.mp3" type="audio/mpeg"></audio>');
+      }             
+    
+      $("#sub-deserts-whats-a-desert-where-are-our-deserts").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundsuperfasttrains.pause(); bgsoundsuperfasttrains.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-whats-a-desert.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopWhereAreOurDeserts").on('tap', function() {
+      if(!playing) {
+        WhereAreOurDesertsaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        WhereAreOurDesertsaudio.pause(); WhereAreOurDesertsaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#WhereAreOurDesertsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        WhereAreOurDesertsaudio.pause();
+        paused = true;
+      } else {
+        WhereAreOurDesertsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#WhereAreOurDesertsaudiofbtn").on('tap', function() {
+      var ctime = WhereAreOurDesertsaudio.currentTime;
+      WhereAreOurDesertsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#WhereAreOurDesertsaudiobbtn").on('tap', function() {
+      var ctime = WhereAreOurDesertsaudio.currentTime;
+      WhereAreOurDesertsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#WhereAreOurDesertsaudiopsbtn").on('tap', function() {
+      WhereAreOurDesertsaudio.pause();
+    });
+  </script>
+</div> <!--//home-->

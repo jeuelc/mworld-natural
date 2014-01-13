@@ -1,0 +1,173 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-the-future-of-deserts-deserts-on-other-worlds">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Deserts on Other Worlds</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+  
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Deserts_On_Other_Worlds/Rover_Hi_Res.jpg', 'Duplicate Mars rovers are thoroughly tested in Death Valley before being sent into space.  (Courtesy: NASA)');">click here</a>
+		
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Deserts_On_Other_Worlds/Panoramas_Hi_Res.jpg', 'One of these is Mars. The other is the Atacama Desert. Can you tell which is which?  (Courtesy: NASA/JPL)');">click here</a>		
+		
+		<div id="zoomwrapper">
+		<!-- video card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Deserts_On_Other_Worlds/Dry_Ice_On_Sand.png" alt="" />
+          </div>
+		  
+		  <!-- Image card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Deserts_On_Other_Worlds/Rover.jpg" alt="" />
+          </div>
+		  
+		  <!-- Image card -->
+          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Deserts_On_Other_Worlds/Panoramas.png" alt="" />
+          </div>
+		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>Empty deserts have other uses that you might not think of.  Astrobiologists examine Earth's deserts, because the harsh conditions help them understand how life might exist and be found on the waterless surface of the Moon, Mars or beyond.  Deserts are also good places to test landing modules and rovers before they are risked on interplanetary missions.</p>
+
+		<p>What's more, because they have so few clouds, deserts are great places for astronomers.  Telescopes can see into the night sky clearly from deserts.  If you go to a desert, go outside at night and look up.  You will have a great view of the Milky Way and almost certainly see satellites moving slowly across the sky.  If you are lucky, you might also see a bright shooting star, or the International Space Station as it races by.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopDesertsOnTheWorlds"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="DesertsOnTheWorldsaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="DesertsOnTheWorldsaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="DesertsOnTheWorldsaudiofbtn"></div></div>
+    <div id="actualaudio-DesertsOnTheWorlds" style="visibility:hidden;"></div>
+  <!-- </div> -->
+ 
+  <!-- ----------------------- Video embedding --------------------------- -->
+  
+	<div id="watchDryIceOnSandVideoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+    <video id="watchDryIceOnSandVideo" width="1024" height="748" preload>
+      <source src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Deserts_On_Other_Worlds/Dry_Ice_On_Sand.mov" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- ------------------------------------------------------------------ -->
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-DesertsOnTheWorlds').html('<audio id="DesertsOnTheWorldsaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Deserts_On_Other_Worlds.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-the-future-of-deserts-deserts-on-other-worlds").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+	  watchDryIceOnSandVideo.addEventListener('ended', function() { 
+        $("#watchDryIceOnSandVideoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchDryIceOnSandVideo").css({"z-index":-1});
+        bgsoundDeserts.play(); 
+      });
+    
+      $("#watchDryIceOnSandVideo").on('tap', function() {
+        $("#watchDryIceOnSandVideoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchDryIceOnSandVideo").css({"z-index":-1});
+        bgsoundDeserts.play();
+        watchDryIceOnSandVideo.pause();
+        watchDryIceOnSandVideo.currentTime = 0;
+      });
+	  
+    $("#pol2").on('tap', function() {
+      $('#img1')[0].click();
+    });
+    $("#pol3").on('tap', function() {
+      $('#img2')[0].click();
+    });	
+
+	$("#pol1").on('tap', function(){
+      $("#watchDryIceOnSandVideoholder").css({"visibility":"visible", "z-index":10});
+      $("#watchDryIceOnSandVideo").css({"z-index":9});
+      bgsoundDeserts.pause();
+      watchDryIceOnSandVideo.play();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-the-future-of-deserts.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopDesertsOnTheWorlds").on('tap', function() {
+      if(!playing) {
+        DesertsOnTheWorldsaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        DesertsOnTheWorldsaudio.pause(); DesertsOnTheWorldsaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#DesertsOnTheWorldsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        DesertsOnTheWorldsaudio.pause();
+        paused = true;
+      } else {
+        DesertsOnTheWorldsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#DesertsOnTheWorldsaudiofbtn").on('tap', function() {
+      var ctime = DesertsOnTheWorldsaudio.currentTime;
+      DesertsOnTheWorldsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#DesertsOnTheWorldsaudiobbtn").on('tap', function() {
+      var ctime = DesertsOnTheWorldsaudio.currentTime;
+      DesertsOnTheWorldsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#DesertsOnTheWorldsaudiopsbtn").on('tap', function() {
+      DesertsOnTheWorldsaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

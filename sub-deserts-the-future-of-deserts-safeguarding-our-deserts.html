@@ -1,0 +1,175 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-the-future-of-deserts-safeguarding-our-deserts">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Safeguarding our Deserts</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+         <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Safeguarding_Our_Deserts/Desert_Biomimicry.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Safeguarding_Our_Deserts/Desert_Biomimicry_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left: 170px;top: 102px;width: 157px;height: 22px;"></div>
+              
+			  <div class="falseans" style="position:absolute;left: 170px;top: 126px;width: 157px;height: 22px;"></div>
+			  <div class="falseans" style="position:absolute;left: 170px;top: 150px;width: 157px;height: 22px;"></div>
+			  <div class="falseans" style="position:absolute;left: 170px;top: 175px;width: 157px;height: 22px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container--> 
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Safeguarding_Our_Deserts/Rally_Car_Hi_Res.jpg', 'Cross-desert races damage both the desert life and the cars. Every species we destroy is a lost learning opportunity.  (Courtesy: iStock)');">click here</a>
+				
+		<div id="zoomwrapper">
+		<!-- image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Safeguarding_Our_Deserts/Rally_Car.jpg" alt="" />
+          </div>
+		  
+		  <!-- quiz card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/The_Future_Of_Deserts/Safeguarding_Our_Deserts/Desert_Biomimicry.png" alt="" />
+          </div>
+		  
+
+		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>To many of us, deserts are remote and a little bit mysterious.  Would you like to go and see a desert, to see for yourself how people and animals live there?</p>
+
+		<p>If you do travel into a desert, be careful not to drive over the desert plants, or step on them.  They often grow slowly, battling heat and dryness.  If you squashed one, it could take many years for it to recover!  Deserts can be quite fragile, so it is wise to stay on the roads or walking paths.  Too many tourists, with buses, cars, and walking boots, can be a problem for deserts.  Cattle, sheep, and goats are often grazed in the deserts, but these too can cause damage to plants and soils.  We need to take care of these special, dry places, so that people in the future can see them too.  Understanding how deserts work is the best aid to managing them for the future.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopSafeguardingOurDeserts"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="SafeguardingOurDesertsaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="SafeguardingOurDesertsaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="SafeguardingOurDesertsaudiofbtn"></div></div>
+    <div id="actualaudio-SafeguardingOurDeserts" style="visibility:hidden;"></div>
+  <!-- </div> -->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-SafeguardingOurDeserts').html('<audio id="SafeguardingOurDesertsaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Safeguarding_Our_Deserts.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-the-future-of-deserts-safeguarding-our-deserts").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+
+    $('.falseans').on('tap', function() {
+      alert("Wrong answer");
+    });
+    $('#trueans').on('tap', function() {
+      alert("Correct answer");
+    });
+    	 
+    $(".returncard").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":4});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
+	
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+    function goBack() {
+      $.mobile.changePage("sub-deserts-the-future-of-deserts.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopSafeguardingOurDeserts").on('tap', function() {
+      if(!playing) {
+        SafeguardingOurDesertsaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        SafeguardingOurDesertsaudio.pause(); SafeguardingOurDesertsaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#SafeguardingOurDesertsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        SafeguardingOurDesertsaudio.pause();
+        paused = true;
+      } else {
+        SafeguardingOurDesertsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#SafeguardingOurDesertsaudiofbtn").on('tap', function() {
+      var ctime = SafeguardingOurDesertsaudio.currentTime;
+      SafeguardingOurDesertsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#SafeguardingOurDesertsaudiobbtn").on('tap', function() {
+      var ctime = SafeguardingOurDesertsaudio.currentTime;
+      SafeguardingOurDesertsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#SafeguardingOurDesertsaudiopsbtn").on('tap', function() {
+      SafeguardingOurDesertsaudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

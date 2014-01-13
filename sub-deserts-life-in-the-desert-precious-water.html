@@ -1,0 +1,151 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert-precious-water">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Precious Water</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+	  <!--
+		Card sequence:
+		1 Tent
+		2 Camels
+		3 Water storage
+	  -->
+	  
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Precious_Water/Beetle_Hi_Res.jpg', 'The Namib Desert beetle stands at the top of a sand dune and collects dew on its own body.  (Courtesy: Getty Images)');">click here</a>
+
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Precious_Water/Namib_Desert_Fog_Hi_Res.jpg', 'The heavy fog on the coast of the Namib Desert has wrecked many ships, earning it the name Skeleton Coast.  (Courtesy: Shutterstock)');">click here</a>
+		<div id="zoomwrapper">
+		<!-- Image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Precious_Water/Beetle.jpg" alt="" />
+          </div>
+		  	  
+		  <!-- Image card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Precious_Water/Namib_Desert_Fog.jpg" alt="" />
+          </div>
+		  
+		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+			<p>Though deserts don't receive much rain, they have other sources of precious water.  Some, like the Gobi Desert in Mongolia, have streams that are fed by melting snow in nearby high mountains.  Elsewhere, water can seep through rocks, deep underground.  This can trickle up to the surface to form a natural spring or 'oasis', or be reached by constructing deep wells.</p>
+
+			Sometimes rivers flow into deserts from areas far away where the rainfall is larger.  As they flow across the desert, they slowly dry out in the hot sun, and also shrink because their water soaks into the ground.  Plants often line these rivers, and their roots seek out water stored in the river bed.</p>
+
+			Some desert plants use dew, and others trap small droplets of water from fog that blows across the desert.  Desert people are also learning to make use of dew and fog.  Carefully collected dew can provide extra water for drinking or growing vegetables.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopPreciousWater"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="PreciousWateraudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="PreciousWateraudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="PreciousWateraudiofbtn"></div></div>
+    <div id="actualaudio-PreciousWater" style="visibility:hidden;"></div>
+  <!-- </div> -->
+
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-PreciousWater').html('<audio id="PreciousWateraudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Precious_Water.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-life-in-the-desert-precious-water").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+	  
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+	  
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });
+
+
+
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-life-in-the-desert.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopPreciousWater").on('tap', function() {
+      if(!playing) {
+        PreciousWateraudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        PreciousWateraudio.pause(); PreciousWateraudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#PreciousWateraudioplbtn").on('tap', function() {
+      if(!paused) {
+        PreciousWateraudio.pause();
+        paused = true;
+      } else {
+        PreciousWateraudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#PreciousWateraudiofbtn").on('tap', function() {
+      var ctime = PreciousWateraudio.currentTime;
+      PreciousWateraudio.currentTime = ctime + 10;
+    });
+    
+    $("#PreciousWateraudiobbtn").on('tap', function() {
+      var ctime = PreciousWateraudio.currentTime;
+      PreciousWateraudio.currentTime = ctime - 10;
+    });
+    
+    $("#PreciousWateraudiopsbtn").on('tap', function() {
+      PreciousWateraudio.pause();
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

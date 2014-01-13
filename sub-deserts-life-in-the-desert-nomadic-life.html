@@ -1,0 +1,162 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-life-in-the-desert-desert-cities">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Nomadic Life</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+	  <!--
+		Card sequence:
+		1 Tent
+		2 Camels
+		3 Water storage
+	  -->
+	  
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life/Tent_Hi_Res.jpg', 'Only a few Arab nomads (\'Bedouins\') still live as their elders did in camel- or goat-hair tents.  (Courtesy: Thinkstock)');">click here</a>
+
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life/Camels_Hi_Res.jpg', 'Did you know that camels urinate down 
+their hind legs?  When the urine evaporates it cools 
+them down.  (Courtesy: Thinkstock)');">click here</a>
+
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life/Water_Storage_Hi_Res.jpg', 'These underground water storage tanks collect the rainwater that falls only once a year.  (Courtesy: Jonathan Appleby)');">click here</a>		
+
+		<div id="zoomwrapper">
+		<!-- Image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life/Tent.jpg" alt="" />
+          </div>
+		  	  
+		  <!-- Image card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life/Camels.jpg" alt="" />
+          </div>
+		  
+		  <!-- Image card -->
+          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Life_In_The_Desert/Nomadic_Life/Water_Storage.jpg" alt="" />
+          </div>		  
+		  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>Traditionally, some desert people had no permanent home, but moved to wherever there had been rain, and grass for their animals.  But this nomadic way of life is becoming less appealing as roads and towns spread into the desert.  Imagine arriving at one of the best places for your sheep or goats to graze, only to find that it had been covered by buildings or car parks.  Then where would you go?</p>
+
+		<p>In some deserts, people built permanent villages and towns.  These were often located at a place that gave the people access to a source of water.  A suitable location would be in a valley or 'wadi' (an Arabic word) that might receive runoff from surrounding hills.  People store flood water in large underground chambers cut into the rock, to prevent evaporation and make the water last longer.  Some of this water might be used for washing and cooking, to grow crop plants such as dates, and for watering stock.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopNomadicLife"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="NomadicLifeaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="NomadicLifeaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="NomadicLifeaudiofbtn"></div></div>
+    <div id="actualaudio-NomadicLife" style="visibility:hidden;"></div>
+  <!-- </div> -->
+
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-NomadicLife').html('<audio id="NomadicLifeaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Nomadic_Life.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-life-in-the-desert-desert-cities").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+	  
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+	  
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });
+	
+    $("#pol3").on('tap', function() {
+      $('#img3')[0].click();
+    });
+
+
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-life-in-the-desert.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopNomadicLife").on('tap', function() {
+      if(!playing) {
+        NomadicLifeaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        NomadicLifeaudio.pause(); NomadicLifeaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#NomadicLifeaudioplbtn").on('tap', function() {
+      if(!paused) {
+        NomadicLifeaudio.pause();
+        paused = true;
+      } else {
+        NomadicLifeaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#NomadicLifeaudiofbtn").on('tap', function() {
+      var ctime = NomadicLifeaudio.currentTime;
+      NomadicLifeaudio.currentTime = ctime + 10;
+    });
+    
+    $("#NomadicLifeaudiobbtn").on('tap', function() {
+      var ctime = NomadicLifeaudio.currentTime;
+      NomadicLifeaudio.currentTime = ctime - 10;
+    });
+    
+    $("#NomadicLifeaudiopsbtn").on('tap', function() {
+      NomadicLifeaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

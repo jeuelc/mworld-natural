@@ -1,0 +1,167 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-deserts-whats-a-desert-dunes-rocks-and-more">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_deserts.js"></script>
+  <link rel="stylesheet" href="css/style_deserts.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnDeserts"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnDeserts"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnDeserts"></div></div>
+  <div class="infobtnholder"><div class="infobtnDeserts"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnDeserts"></div></div>
+  <div class="menubtnholder"><div class="menubtnDeserts"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:0px;"><h1>Dunes, Rocks and More</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Sand_Dunes_Hi_Res.jpg', 'Sand dunes in the Liwa Desert, part of Rub al Khali.  (Courtesy: Shutterstock)');">click here</a>
+
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Oasis_Hi_Res.jpg', 'An oasis is a welcome sight when youre hot, dry and tired!  (Courtesy: Thinkstock)');">click here</a>
+
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Rocky_Desert_And_Man_Hi_Res.jpg', 'Only 15% of all deserts are sandy. This one is covered with small stones called \'gibbers\'.  (Courtesy: David Dunkerley)');">click here</a>		
+
+        <a id="img4" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Bird_Mud_Nests_Hi_Res.jpg', 'Imagine carrying 1000 mouthfuls of mud to build your nest!  (Courtesy: David Dunkerley)');">click here</a>	
+		
+		<div id="zoomwrapper">
+		<!-- Image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Sand_Dunes.jpg" alt="" />
+          </div>
+		  	  
+		  <!-- Image card -->
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Oasis.jpg" alt="" />
+          </div>
+		  
+		  <!-- Image card -->
+          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Rocky_Desert_And_Man.jpg" alt="" />
+          </div>		  
+
+		  <!-- Image card -->
+          <div id="pol4"class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Dunes_Rocks_And_More/Bird_Mud_Nests.jpg" alt="" />
+          </div>			  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentDeserts">
+        <p>Deserts don't all look the same.  Some consist mostly of rugged, rocky hills or mountains.  These can be the source of streams and rivers, because being high, they receive a little bit more rain than the plains.  This is called 'orographic precipitation'.  Other deserts are flat and covered in small stones, and some just have sand dunes stretching to the horizon.  Big sand deserts are called 'ergs' or 'sand seas'.  The largest of these is the Rub' al Khali or 'the empty quarter'.  It covers much of the Arabian Peninsula.</p>
+
+		<p>There are occasional oases in deserts.  However, cooling off with a swim in a desert lake or river is usually just a dream, because most of the time they are completely dry.  Just sometimes, in shady places, pools of water are left by the rain.  These are important because they can provide birds and animals with drinking water.  While they last, some birds gather mud from around such pools to build their nests.</p>
+      </div>
+       
+       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Natural_World/bottomhomenat.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->        
+  
+    <div class="micbtnholder"><div class="micbtnDeserts" id="playstopDunesRocksAndMore"></div></div>
+    <div class="bDeserts"><div class="rwDeserts" id="DunesRocksAndMoreaudiobbtn"></div></div>
+    <div class="plDeserts"><div class="plpsDeserts" id="DunesRocksAndMoreaudioplbtn"></div></div>
+    <div class="fDeserts"><div class="fwDeserts" id="DunesRocksAndMoreaudiofbtn"></div></div>
+    <div id="actualaudio-DunesRocksAndMore" style="visibility:hidden;"></div>
+  <!-- </div> -->
+
+ 
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+ 
+	var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol1').css("z-index", 3);
+      $('div#pol2').css("z-index", 2);
+      $('div#pol3').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('#watchLavaFlowholder').css({"visibility":"hidden", "z-index":-10});		
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      $('#watchMtTungurahuaholder').css({"visibility":"hidden", "z-index":-10});		
+      $('div#pol4 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-DunesRocksAndMore').html('<audio id="DunesRocksAndMoreaudio" controls preload onpause="playDeserts()" onplay="pauseDeserts()"><source src="audio/Deserts/Dunes_Rocks_And_More.mp3" type="audio/mpeg"></audio>');
+      }             
+      $("#sub-deserts-whats-a-desert-dunes-rocks-and-more").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundDeserts.pause(); bgsoundDeserts.currentTime = 0;});
+	
+	  
+    $("#pol1").on('tap', function() {
+      $('#img1')[0].click();
+    });
+	  
+    $("#pol2").on('tap', function() {
+      $('#img2')[0].click();
+    });
+	
+    $("#pol3").on('tap', function() {
+      $('#img3')[0].click();
+    });
+	
+    $("#pol4").on('tap', function() {
+      $('#img4')[0].click();
+    });	
+
+
+    
+    function goBack() {
+      $.mobile.changePage("sub-deserts-whats-a-desert.html", {transition: "slide", reverse: true });
+    }
+    
+    function playDeserts() {
+         bgsoundDeserts.play();
+    }
+       
+    function pauseDeserts() {
+         bgsoundDeserts.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+    $("#playstopDunesRocksAndMore").on('tap', function() {
+      if(!playing) {
+        DunesRocksAndMoreaudio.play();
+        $('.micbtnDeserts').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        DunesRocksAndMoreaudio.pause(); DunesRocksAndMoreaudio.currentTime = 0;
+        $('.micbtnDeserts').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#DunesRocksAndMoreaudioplbtn").on('tap', function() {
+      if(!paused) {
+        DunesRocksAndMoreaudio.pause();
+        paused = true;
+      } else {
+        DunesRocksAndMoreaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#DunesRocksAndMoreaudiofbtn").on('tap', function() {
+      var ctime = DunesRocksAndMoreaudio.currentTime;
+      DunesRocksAndMoreaudio.currentTime = ctime + 10;
+    });
+    
+    $("#DunesRocksAndMoreaudiobbtn").on('tap', function() {
+      var ctime = DunesRocksAndMoreaudio.currentTime;
+      DunesRocksAndMoreaudio.currentTime = ctime - 10;
+    });
+    
+    $("#DunesRocksAndMoreaudiopsbtn").on('tap', function() {
+      DunesRocksAndMoreaudio.pause();
+    });
+  </script>
+  <script src="js/fourcardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

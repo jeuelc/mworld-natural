@@ -1,5 +1,5 @@
 /* Main common basic pages */
-#sub-deserts, #sub-deserts-gold-and-power,#sub-deserts-life-in-the-desert,#sub-deserts-whats-a-desert,#sub-deserts-the-future-of-deserts,#sub-deserts-gold-and-power-fossil-fuels, #sub-deserts-gold-and-power-rocks-and-solar,#sub-deserts-gold-and-power-mineral-riches, #sub-deserts-life-in-the-desert-camels-cacti-and-critters, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners{
+#sub-deserts, #sub-deserts-gold-and-power,#sub-deserts-life-in-the-desert,#sub-deserts-whats-a-desert,#sub-deserts-the-future-of-deserts,#sub-deserts-gold-and-power-fossil-fuels, #sub-deserts-gold-and-power-rocks-and-solar,#sub-deserts-gold-and-power-mineral-riches, #sub-deserts-life-in-the-desert-camels-cacti-and-critters, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners,#sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-storers, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-little-or-none, #sub-deserts-life-in-the-desert-desert-cities, #sub-deserts-life-in-the-desert-nomadic-life, #sub-deserts-life-in-the-desert-precious-water, #sub-deserts-the-future-of-deserts-deserts-on-other-worlds, #sub-deserts-the-future-of-deserts-safeguarding-our-deserts, #sub-deserts-whats-a-desert-dunes-rocks-and-more, #sub-deserts-whats-a-desert-have-deserts-always-been-dry, #sub-deserts-whats-a-desert-why-do-we-have-deserts{
   background:url('images/9-12/The_Natural_World/Deserts/Deserts_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
@@ -7,8 +7,8 @@
 }
 
 /* Custom Pages Style */
-#sub-Deserts-fossil-puzzles{
-  background:url('images/9-12/The_Natural_World/Deserts/Fossil_Puzzles/Fossil_Puzzles_BG.jpg') no-repeat;
+#sub-deserts-whats-a-desert-where-are-our-deserts{
+  background:url('images/9-12/The_Natural_World/Deserts/Whats_A_Desert/Where_Are_The_Deserts/Where_Are_The_Deserts_BG.png') no-repeat;
   height:748px !important;
   overflow:hidden !important;
   width:1024px !important;
@@ -199,7 +199,7 @@
 		position:absolute;
 	}
 /* Common Header Div Design */
-#sub-deserts .bptitleholder, #sub-deserts-gold-and-power .bptitleholder,#sub-deserts-life-in-the-desert .bptitleholder,#sub-deserts-whats-a-desert .bptitleholder,#sub-deserts-the-future-of-deserts .bptitleholder, #sub-deserts-gold-and-power-fossil-fuels .bptitleholder,#sub-deserts-gold-and-power-rocks-and-solar .bptitleholder,#sub-deserts-gold-and-power-mineral-riches .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners .bptitleholder{
+#sub-deserts .bptitleholder, #sub-deserts-gold-and-power .bptitleholder,#sub-deserts-life-in-the-desert .bptitleholder,#sub-deserts-whats-a-desert .bptitleholder,#sub-deserts-the-future-of-deserts .bptitleholder, #sub-deserts-gold-and-power-fossil-fuels .bptitleholder,#sub-deserts-gold-and-power-rocks-and-solar .bptitleholder,#sub-deserts-gold-and-power-mineral-riches .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners .bptitleholder,#sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-storers .bptitleholder, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-little-or-none .bptitleholder, #sub-deserts-life-in-the-desert-desert-cities .bptitleholder, #sub-deserts-life-in-the-desert-nomadic-life .bptitleholder,#sub-deserts-life-in-the-desert-precious-water .bptitleholder, #sub-deserts-the-future-of-deserts-deserts-on-other-worlds .bptitleholder, #sub-deserts-the-future-of-deserts-safeguarding-our-deserts .bptitleholder, #sub-deserts-whats-a-desert-dunes-rocks-and-more .bptitleholder, #sub-deserts-whats-a-desert-have-deserts-always-been-dry .bptitleholder, #sub-deserts-whats-a-desert-why-do-we-have-deserts .bptitleholder{
 	width: 627px;
 	height: 68px;
 	text-align: center;
@@ -221,7 +221,7 @@
 }
 
 /* Common Header Design h1 */
-#sub-deserts .bptitleholder h1,#sub-deserts-gold-and-power .bptitleholder h1,#sub-deserts-life-in-the-desert .bptitleholder h1,#sub-deserts-whats-a-desert .bptitleholder h1, #sub-deserts-the-future-of-deserts .bptitleholder h1,#sub-deserts-gold-and-power-fossil-fuels .bptitleholder h1,#sub-deserts-gold-and-power-rocks-and-solar .bptitleholder h1,#sub-deserts-gold-and-power-mineral-riches .bptitleholder h1,#sub-deserts-life-in-the-desert-camels-cacti-and-critters .bptitleholder h1,#sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat .bptitleholder h1, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners .bptitleholder h1{
+#sub-deserts .bptitleholder h1,#sub-deserts-gold-and-power .bptitleholder h1,#sub-deserts-life-in-the-desert .bptitleholder h1,#sub-deserts-whats-a-desert .bptitleholder h1, #sub-deserts-the-future-of-deserts .bptitleholder h1,#sub-deserts-gold-and-power-fossil-fuels .bptitleholder h1,#sub-deserts-gold-and-power-rocks-and-solar .bptitleholder h1,#sub-deserts-gold-and-power-mineral-riches .bptitleholder h1,#sub-deserts-life-in-the-desert-camels-cacti-and-critters .bptitleholder h1,#sub-deserts-life-in-the-desert-camels-cacti-and-critters-escaping-the-heat .bptitleholder h1, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-miners .bptitleholder h1, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-storers .bptitleholder h1, #sub-deserts-life-in-the-desert-camels-cacti-and-critters-water-little-or-none .bptitleholder h1, #sub-deserts-life-in-the-desert-desert-cities .bptitleholder h1, #sub-deserts-life-in-the-desert-nomadic-life .bptitleholder h1,#sub-deserts-life-in-the-desert-precious-water .bptitleholder h1, #sub-deserts-the-future-of-deserts-deserts-on-other-worlds .bptitleholder h1, #sub-deserts-the-future-of-deserts-safeguarding-our-deserts .bptitleholder h1, #sub-deserts-whats-a-desert-dunes-rocks-and-more .bptitleholder h1, #sub-deserts-whats-a-desert-have-deserts-always-been-dry .bptitleholder h1, #sub-deserts-whats-a-desert-why-do-we-have-deserts .bptitleholder h1{
 	text-transform: uppercase;
 	color: #FFFFFF !important;
 	font-family: "comic sans ms" !important;
